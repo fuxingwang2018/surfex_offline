@@ -65,7 +65,7 @@ ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat
 #${CP} ${FORCDIR}/grid_file.txt ${SRC_SURFEX}/MY_RUN/KTEST/${EXPNAME}
 
 # The pysiography data
-#. ./Prepare_pgd
+. ./Prepare_pgd
 
 # The pysiography maps from Isabel R. 
  ##ln -sf /home/sm_isari/INPUT_files/UrbanSis_physiography/PGD/* .
@@ -82,9 +82,9 @@ ln -sf ${INFILE_PGD} Const.Clim.sfx
 #ln -sf ${INFILE_PGD} PGD.lfi
 
 # Convert FA to LFI, because CTYPE in &NAM_PREP_SEAFLUX does not accept FA.
-#SFXTOOLS='/nobackup/rossby18/rossby/joint_exp/harmony/HCLIM38h1_NORCP_ALADIN_ECE_commit/bin/SFXTOOLS'
-#${SFXTOOLS} sfxfa2lfi --sfx-fa--file ICMSHFULL+00000.sfx --sfx-lfi-file ICMSHFULL+00000.lfi
-#${SFXTOOLS} sfxfa2lfi --sfx-fa--file Const.Clim.sfx --sfx-lfi-file Const.Clim.lfi
+SFXTOOLS='/nobackup/rossby18/rossby/joint_exp/harmony/HCLIM38h1_NORCP_ALADIN_ECE_commit/bin/SFXTOOLS'
+${SFXTOOLS} sfxfa2lfi --sfx-fa--file ICMSHFULL+00000.sfx --sfx-lfi-file ICMSHFULL+00000.lfi
+${SFXTOOLS} sfxfa2lfi --sfx-fa--file Const.Clim.sfx --sfx-lfi-file Const.Clim.lfi
 
 
 # The executables
@@ -92,9 +92,9 @@ ln -sf ${PGD_PATH} pgd.exe
 ln -sf ${PREP_PATH} prep.exe
 
 # PGD ("The physiographic fields") 
-#./pgd.exe 
+./pgd.exe 
 # PREP ("Initialization of the prognostic fields")
-#./prep.exe
+./prep.exe
 
 
 # Simulation outputs
