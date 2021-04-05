@@ -1,0 +1,190 @@
+
+NOTE: 'MASTER' does not work!!!
+When compiling the original code, there is an error 'undefined reference to read_surn1 ...'
+To sole this, one can compare the code with other newer SURFEX versions (v8.1, v7.3, ...) to find how to change.
+The 3 original files were copied to MYSRC_original/
+diag_flake_initn.F90  mode_read_surf_ol.F90  snow3l_73.F90
+The 3 modified files are the same as those in MYSRC_mums.
+
+MYSRC_mums: for MUMS project. The basic changes allow OFFLINE works
+MYSRC_soillay: same as MYSRC_mums but add some prints in mode_read_extern.F90, convert_cover_isba.F90, ini_data_soil.F90, soilgrid.F90 
+
+MYSRC_Brazil:
+same as MYSRC_mums, but add init_teb_garden_pgdn.F90 (Brazil)
+and add some prints in mode_read_extern.F90,  prep_teb_greenroof_extern.F90, prep_teb_garden_extern.F90
+an important change: prep_hor_teb_garden_field.F90 (ZSUM(:)=1)
+
+
+MYSRC_UrbanSIS:
+Based on MYSRC_mums, but add SURFEX modifications for UrbanSIS experiment /home/sm_danbe/hm_home/Runs_UrbanSIS/HCLIM38h1_SMHI_UrbanSIS_Stockholm09
+src/surfex/SURFEX: init_teb_garden_pgdn.F90  pgd_isba.F90              prep_teb_extern.F90       update_data_cover.F90     write_diag_pgd_isban.F90  
+                   pgd_cover.F90             prep_teb_buffer.F90       read_ascllv.F90           vegetation_update.F90     write_pgd_surf_atmn.F90
+src/surfex/OFFLIN: get_interp_halo_ol.F90
+Only some prints in these subroutines:
+mode_read_extern.F90           prep_teb_garden_unif.F90       read_teb_gardenn.F90      
+get_interp_halo_ol.F90         prep_hor_teb_garden_field.F90  read_ascllv.F90                      
+prep_teb_garden.F90                     
+(this subroutine has been removed) Special case for : read_prep_teb_garden_conf.F90
+diff sm_fuxwa/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/src/MYSRC_UrbanSIS/read_prep_teb_garden_conf.F90 sm_fuxwa/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/src/SURFEX/read_prep_teb_garden_conf.F90
+<   IF (HVAR(1:2)/='TG' .AND. HVAR(1:2)/='WG' .OR. HVAR(1:3)=='WGI' .OR. HVAR(1:2)=='WR') THEN
+>   IF (HVAR(1:2)/='TG' .AND. HVAR(1:2)/='WG' .OR. HVAR(1:3)=='WGI') THEN
+
+
+
+MYSRC_ncode_GreenWave
+Based on MYSRC_UrbanSIS, but add modifications (22 Oct 2019 14:47:16) for soil moisture interpolation https://hirlam.org/trac/changeset/18643/
+Only in MYSRC_ncode_GreenWave/: compute_isba_parameters.F90, init_pgd_surf_atm.F90, modd_isban.F90, prep_hor_isba_field.F90, prep_isba_extern.F90 (sm interpolation code)
+No print statements in mode_read_extern.F90
+Unlike MYSRC_UrbanSIS, no modifications in read_prep_teb_garden_conf.F90
+an important change: prep_hor_teb_garden_field.F90 (WHERE (ZFIELDOUT(:,JLAYER,JVEGTYPE)/=XUNDEF .AND. ZSUM(:).GT.0))
+
+MYSRC_GreenWave:
+Based on MYSRC_UrbanSIS, but add modifications for HCLIM38/SURFEX repository and HCLIM38h1_SMHI/SURFEX repository:
+diff /home/sm_fuxwa/harmonie/HCLIM38h1/ /home/sm_danbe/harmonie/HCLIM38h1_SMHI/src/surfex/SURFEX/ -q
+diff sm_fuxwa/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/src/SURFEX /home/sm_danbe/harmonie/HCLIM38h1_SMHI/src/surfex/SURFEX/ -q
+Only in MYSRC_GreenWave:
+ average_diag_misc_isban.F90, coupling_flake_orographyn.F90, hor_extrapol_surf.F90,          hor_interpol.F90,       hor_interpol_gauss.F90
+ hor_interpol_rotlatlon.F90,  ini_surf_csts.F90,             interp_grid.F90, modd_csts.F90, mode_read_grib.F90,     prep_flake_grib.F90
+ prep_grib_grid.F90,          prep_hor_flake_field.F90,      prep_hor_isba_field.F90,        prep_hor_snow_field.F90
+ prep_hor_snow_fields.F90,    prep_hor_teb_field.F90,        prep_isba_grib.F90,             prep_seaflux_grib.F90
+ prep_snow_grib.F90,          prep_teb_grib.F90,             prep_watflux_grib.F90,          simple_ice.F90
+
+
+
+MYSRC_ncode:
+same as MYSRC_mums, but add 
+compute_isba_parameters.F90
+init_pgd_surf_atm.F90
+modd_isban.F90
+mode_read_extern.F90
+
+MYSRC_ncode_Brazil:
+Same as MYSRC_ncode, but add init_teb_garden_pgdn.F90 (same )
+
+MYSRC_ncode_Brazil_UrbanSIS:
+same as MYSRC_ncode_Brazil, but add get_interp_halo_ol.F90
+and add print in prep_hor_teb_garden_field.F90 (ZSUM), pgd_cover.F90 
+
+MYSRC_ncode_r18798:
+Same as ncode, but add init_teb_garden_pgdn.F90 (Brazil) (20200421) and get_interp_halo_ol.F90 (20200423)
+and also add the two (three) suspicious subroutines related to the soil moisture interpolation code:  
+prep_hor_isba_field.F90 
+prep_isba_extern.F90 
+soilstress.F90 (only some print out) 
+
+MYSRC_ncode_r18798_debug:
+Same as MYSRC_ncode_r18798 but a small change in read_direct.F90 to test 'Architecture of the machine needs to swap LITTLE_ENDIAN_ARCH to T'.
+
+MYSRC_ncode_r18798_bugcorr:
+Same as MYSRC_ncode_r18798 but correct the bug in prep_hor_teb_garden_field.F90 using a 'patch' approach after discussion with MASSON Valéry at Meteo France.
+    WHERE (ZFIELDOUT(:,JLAYER,JVEGTYPE)/=XUNDEF.AND. ZSUM(:).GT.0)
+      ZW(:,JLAYER) = ZW(:,JLAYER) + XVEGTYPE(:,JVEGTYPE) * ZFIELDOUT(:,JLAYER,JVEGTYPE) / ZSUM(:)
+    END WHERE
+    WHERE (ZFIELDOUT(:,JLAYER,JVEGTYPE)/=XUNDEF .AND. ZSUM(:) .EQ. 0)
+         ZW(:,JLAYER) = XUNDEF
+    END WHERE
+
+
+MYSRC (?): cannot remember 
+
+MYSRC_ncode_r18798_bugcorr_utci:
+Modifications in OFFLIN/init_outfn_tebn.F90 to correct utci error.
+
+MYSRC_ncode_r18798_bugcorr_utci_test_20210324: 2021 March 24
+To test the error mentioned below. add WRITE statement in pgd_field.F90 to debug.
+ 
+MYSRC_ncode_r18798_bugcorr_utci_pgd: 2021 March 24
+To correct error in 
+pgd_isba.F90
+  -> read_nam_pgd_isba.F90 (bug here)
+  -> pgd_field.F90 (crashes here)
+
+In read_nam_pgd_isba.F90, YPHFILETYPE was initialized twice (PHFILETYPE      = '      '), but YFERTFILETYPE was not initialized.
+The YFERTFILETYPE can be assigned arbitrary values, then the following code in pgd_isba.F90 (e.g., Lines 582-595 in HCLIM_develop) will be executed:
+IF((LEN_TRIM(YPHFILETYPE)/=0.OR.XUNIF_PH/=XUNDEF) .AND. &
+   (LEN_TRIM(YFERTFILETYPE)/=0.OR.XUNIF_FERT/=XUNDEF)) THEN
+  !
+  ALLOCATE(S%XPH(ILU))
+  ALLOCATE(S%XFERT(ILU))
+  !
+  IO%LNOF = .TRUE.
+  !
+  CALL PGD_FIELD(DTCO, UG, U, USS, &
+                  HPROGRAM,'pH value','NAT',YPH,YPHFILETYPE,XUNIF_PH,S%XPH(:))
+  CALL PGD_FIELD(DTCO, UG, U, USS, &
+                  HPROGRAM,'fertilisation','NAT',YFERT,YFERTFILETYPE,XUNIF_FERT,S%XFERT(:))
+  !
+ENDIF
+
+Because we do not provide 'pH value' and 'fertilisation' data, an error can happen in pgd_field.F90:
+
+ ***********************************************************
+ * Error in PGD field preparation of field : pH value
+ * There is no prescribed value and no input file          *
+ ***********************************************************
+
+ ---------------------------------------------------------------------------
+ ---------------------------------------------------------------------------
+ --------------------   FATAL ERROR in SURFEX  -----------------------------
+ ---------------------------------------------------------------------------
+ ---------------------------------------------------------------------------
+ -                                                                         -
+ PGD_FIELD: NO PRESCRIBED VALUE NOR INPUT FILE FOR pH value
+ -                                                                         -
+ ---------------------------------------------------------------------------
+ ---------------------------------------------------------------------------
+
+
+
+Some successful tests (LGARDEN=T):
+LTOWN_TO_ROCK = T
+Test of ECOCLIMAP
+/nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD/ECOCLIMAP_I_GLOBAL_V1.5
+/nobackup/smhid13/sm_uandr/HARMONIE/data/climate/PGD/ECOCLIMAP_II_EUROP_V2.5_plus 
+
+
+
+---------------------------
+On line sim:
+
+UrbanSIS + physio + garden = OK
+HCLIM38 + garden = Not OK
+UrbanSIS + garden = ?
+
+Fuxing Wang [14:55]
+http://www.umr-cnrm.fr/surfex/data/BROWSER/doc_surf81/prep__hor__teb__garden__field_8F90.html
+
+Danijel Belusic [15:17]
+HCLIM38 + physio + garden = Not OK
+offline: HCLIM38 + physio + garden = OK
+offline: otherwise not OK
+
+Danijel Belusic [15:53]
+offline: HCLIM38 + garden = OK
+
+So here are the repositories with different stages of Fuxing's corrections. They are all here:
+here /home/sm_danbe/harmonie
+and then:
+HCLIM38h1_preFuxing1 the oldest (should be the same as the successful from Isabel)
+HCLIM38h1_postFuxing1 (after 1st change)
+HCLIM38h1 (current code, which is the same as after the 2nd change)
+I now have three exp here: /home/sm_danbe/hm_home/Runs_TestGarden
+they use these 3 different repositores, and are otherwise the same. I'll let you know what happens.
+
+
+
+
+
+-------------------------
+For CentOS7:
+These files were changed:
+*CentOS6 are the files before change.
+Rules.LXifort.mk.CentOS6 (openmp → qopenmp)
+rules/Rules.LXifort.mk.CentOS6 (openmp → qopenmp)
+compile_surfex_CentOS7.sh (change ‘module load XXX’)
+Makefile.SURFEX.mk.CentOS6 (search for ‘BINSC’)
+
+
+(base) [sm_fuxwa@bi2 LIB]$ cp /home/sm_fuxwa/SURFEX_GITREADER/Surfex_Git2/src/LIB/netcdf4/ . -rp
+(base) [sm_fuxwa@bi2 LIB]$ cp /home/sm_fuxwa/SURFEX_GITREADER/Surfex_Git2/src/LIB/grib_api-1.17.0-Source* . -rp
+

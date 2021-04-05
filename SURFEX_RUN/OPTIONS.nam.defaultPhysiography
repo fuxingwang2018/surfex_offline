@@ -1,0 +1,247 @@
+&NAM_FRAC              LECOCLIMAP = T,
+/
+&NAM_COVER             
+                       YCOVER    = 'ECOCLIMAP_II_EUROP_V2.2',
+                       YFILETYPE = 'DIRECT'
+                       !YCOVERFILETYPE = 'DIRECT'
+/
+&NAM_PGD_GRID
+                       CGRID = 'CONF PROJ '
+/
+&NAM_CONF_PROJ_GRID
+   NIMAX=565,
+   NJMAX=629,
+   XDX=300.,
+   XDY=300.,
+   XLATCEN=59.6,
+   XLONCEN=18.0,
+/
+&NAM_CONF_PROJ
+   XBETA=0,
+   ! SIN(XLAT0)
+   !XRPK=0.862513669,       
+   ! HM_MakeCycleInput_xxxxxxxxxx.html
+   XRPK=0.862513669207257,  
+   XLAT0=59.6,
+   XLON0=18.0,
+/
+&NAM_PGD_SCHEMES       CNATURE = 'ISBA  '    ,
+                       CSEA    = 'SEAFLX'    ,
+                       CTOWN   = 'TEB   '    ,
+                       CWATER  = 'FLAKE '    , 
+		       LGARDEN = .TRUE., 
+/
+&NAM_FLAKEn
+    LSEDIMENTS = .FALSE.,
+/
+&NAM_DATA_FLAKE
+    YWATER_DEPTH         = GlobalLakeDepth,
+    YWATER_DEPTHFILETYPE = 'DIRECT',
+    YWATER_DEPTH_STATUS  = GlobalLakeStatus,
+/
+&NAM_PGD_ARRANGE_COVER
+                       LTOWN_TO_ROCK = F
+/
+&NAM_ZS
+                       YZS='gtopo30',
+                       YFILETYPE='DIRECT'
+/
+&NAM_SEABATHY
+   XUNIF_SEABATHY=0.,
+/
+
+&NAM_SGH_ISBAn
+    CRUNOFF  = 'DT92',
+    CRAIN    = 'SGH',
+    CHORT    = 'SGH',
+    CSOC     = 'SGH',
+/
+
+
+&NAM_SEAFLUXn
+    LHANDLE_SIC            =T,
+    LSIC_FROM_FILE         =T,
+    CSEA_ICE               ='SICE',
+    NICE_LAYER             =4,
+    CSEA_FLUX      = 'ECUME',
+    LPWG           = .FALSE.,
+    LPRECIP        = .FALSE.,
+    LPWEBB         = .FALSE.,
+/
+&NAM_PREP_SEAFLUX
+    CFILE_SIC      ='ICMSHFULL+00000',
+    CTYPE_SIC      ='LFI',
+    CFILE_SEAFLX   ='ICMSHFULL+00000',
+    CTYPE          ='LFI',
+    CFILEPGD_SEAFLX= 'Const.Clim',
+    !CFILEPGD_SEAFLX= 'PGD',
+    CTYPEPGD       = 'LFI',
+    LSEA_SBL       = .FALSE.,
+/
+&NAM_SIMPLE_ICE
+    XICE_THICKNESS      =.75,
+    LICE_HAS_SNOW       =F,
+    CICE_SNOW           =S-D,
+    NICE_SNOW_NLAYERS   =4,
+    XICE_SNOW_HEIGHT    =.3,
+    LSIC_DRIVEN_THICKNESS=F,
+    XSIC_DRIVEN_MAX_THICKNESS=1.,
+/
+&NAM_PREP_SIMPLE_ICE
+    LINIT_FROM_SST = T,
+/
+&NAM_PREP_FLAKE
+   LCLIM_LAKE   = T,
+/
+&NAM_PREP_SURF_ATM
+                   CFILE = ICMSHFULL+00000,
+                   !CFILE = ICMSHHARM+00000,
+                   !CFILE = SURFXINI,
+                   CFILETYPE = 'LFI',
+                   !CFILETYPE = 'GRIB',
+                   !CFILETYPE = 'NC',
+                   !CFILEPGD = 'PGD',
+                   CFILEPGD = 'Const.Clim',
+                   CFILEPGDTYPE = 'LFI',
+                   NYEAR  = 2018,
+                   NMONTH = 7,
+                   NDAY   = 1,
+                   XTIME  = 0.0,
+/
+&NAM_PREP_ISBA     
+		   LISBA_CANOPY  = .FALSE.,
+/
+&NAM_PREP_ISBA_SNOW    
+		CSNOW = '3-L',
+		NSNOW_LAYER  = 12,
+/
+&NAM_PREP_TEB
+   		LTEB_CANOPY     = .FALSE.,
+/
+&NAM_ISBA   	
+		YCLAY         = 'clay_fao' ,
+            	YCLAYFILETYPE = 'DIRECT'   ,
+            	YSAND         = 'sand_fao' ,
+            	YSANDFILETYPE = 'DIRECT'   ,
+            	CISBA         = 'DIF'      ,
+            	NGROUND_LAYER = 14,
+            	NPATCH        = 2          ,
+            	CPHOTO        = 'NON'      ,
+            	!LMEB          = .FALSE.   ,
+   	    	YSOC_TOP       = 'soc_top'  ,
+   	    	YSOC_SUB       = 'soc_sub'  ,
+   	    	YSOCFILETYPE   = 'DIRECT'   ,
+   	    	XUNIF_SOC_TOP  = 0.0        ,
+   	    	XUNIF_SOC_SUB  = 0.0        ,
+   	    	XUNIF_RUNOFFB  = 0.2        ,
+   	    	CPEDO_FUNCTION = 'CH78'   ,
+   	    	LTR_ML         = .FALSE.  ,
+/
+
+
+
+&NAM_ISBAn
+   		CROUGH        = 'NONE',
+   		CSCOND        = 'PL98',
+   		CSOILFRZ      = 'LWT',
+   		LCANOPY_DRAG  = .TRUE.,
+   		XCDRAG        = 0.01,
+
+/
+&NAM_SSOn
+   		CROUGH = 'NONE',
+   		XFRACZ0 = 15.,
+/
+&NAM_SURF_ATM
+   		XRIMAX=0.2,
+   		LNOSOF     = .TRUE.,
+   		LVERTSHIFT = .FALSE.,
+/
+&NAM_IO_OFFLINE        LPRINT               = T          ,
+                       CFORCING_FILETYPE    = 'NETCDF'   ,
+                       CSURF_FILETYPE       = 'ASCII '   ,
+                       !CSURF_FILETYPE       = 'LFI '   ,
+                       CTIMESERIES_FILETYPE =  'NETCDF'   ,
+                       XTSTEP_SURF          = 60.     ,
+                       XTSTEP_OUTPUT        = 3600.      ,
+                       LRESTART             = T          ,
+                       LWRITE_COORD         = T          ,
+                       LSET_FORC_ZS         = T          ,
+/
+&NAM_REPROD_OPER
+                       !CQSAT = 'OLD',
+/
+&NAM_WRITE_DIAG_SURFn
+                       LSELECT = .FALSE.,
+                       !CSELECT = 'T2M_ISBA',    'T2M',
+                       !          'T2MMAX_ISBA', 'T2MMAX',
+                       !          'T2MMIN_ISBA', 'T2MMIN',
+                       !CSELECT = 'WGTOT_R_ISBA', 'WGI_R_ISBA',
+                       !          'TALB_ISBA', 'Z0', 'T2M_SEA', 'T2M_WAT',
+                       !          'T2M_ISBA', 'T2M_TEB', 'T2M_P', 'TS',
+                       !          'TS_WATER', 'TS_ISBA', 'SST', 'SIC',
+                       !          'W10MMAX', 'PSN_ISBA',
+                       !          'DSNOW_VEGT', 'WSNOW_VEGT',
+                       !          'SNOMLTC_ISBA', 'RUNOFFC_ISBA',
+                       !          'DRAINC_ISBA', 'TG1',
+                       !          'TG10', 'TG11', 'WG1', 'TSWI1', 
+                       !          'TSWI1_ISBA', 'TSWI_T_ISBA',
+                       !          'WGTOT_T_ISBA', 'WGI_T_ISBA',
+                       !          'FMUC',  'FMVC',
+                       !          'EVAPC_ISBA', 'EVAPC_SEA',
+                       !          'EVAPC_P',
+
+   	CSELECT= "TG1", "WG1", "WGTOT_R_ISBA", "WGI_R_ISBA", "TALB_ISBA",
+		"Z0", "WR", "RESA", "ISBA_CAN_U01", "ISBA_CAN_U02",
+		"ISBA_CAN_U03", "ISBA_CAN_U04", "ISBA_CAN_U05", "ISBA_CAN_U06",
+		"ISBA_CAN_T01", "ISBA_CAN_T02", "ISBA_CAN_T03", "ISBA_CAN_T04",
+		"ISBA_CAN_T05", "ISBA_CAN_T06", "ISBA_CAN_Q01", "ISBA_CAN_Q02",
+		"ISBA_CAN_Q03", "ISBA_CAN_Q04", "ISBA_CAN_Q05", "ISBA_CAN_Q06",
+		"ISBA_CAN_E01", "ISBA_CAN_E02", "ISBA_CAN_E03", "ISBA_CAN_E04",
+		"ISBA_CAN_E05", "ISBA_CAN_E06", "WS_ROOF", "WS_ROAD", "RN_SEA",
+		"H_SEA", "LE_SEA", "GFLUX_SEA", "FMU_SEA", "FMV_SEA", "T2M_SEA",
+		"Q2M_SEA", "HU2M_SEA", "ZON10M_SEA", "MER10M_SEA", "RN_WAT", "H_WAT",
+		"LE_WAT", "GFLUX_WAT", "FMU_WAT", "FMV_WAT", "T2M_WAT", "Q2M_WAT",
+		"HU2M_WAT", "ZON10M_WAT", "MER10M_WAT", "RN_ISBA", "H_ISBA", "LE_ISBA",
+		"GFLUX_ISBA", "FMU_ISBA", "FMV_ISBA", "T2M_ISBA", "Q2M_ISBA", "HU2M_ISBA",
+		"ZON10M_ISBA", "MER10M_ISBA", "TALB_ISBA", "LAI", "VEG", "RSMIN", "CV", 
+		"RGL", "EMIS_ISBA", "WRMAX_CF", "ALBNIR_ISBA", "ALBVIS_ISBA",
+		"ALBUV_ISBA", "RI_TEB", "RN_TEB", "H_TEB", "LE_TEB", "GFLUX_TEB",
+		"FMU_TEB", "FMV_TEB", "T2M_TEB", "Q2M_TEB", "HU2M_TEB", "ZON10M_TEB", "MER10M_TEB",
+		"UTCI_IN", "UTCI_OUTSUN", "UTCI_OUTSHAD", "RI", "EMIS", "RN", "H", "LE",
+		"GFLUX", "FMU", "FMV", "T2M_P", "TS", "TS_WATER", "TS_ISBA",
+		"SST", "SIC", "W10MMAX", "PSN_ISBA", "DSNOW_VEGT",
+		"WSNOW_VEGT", "SNOMLTC_ISBA", "RUNOFFC_ISBA", "DRAINC_ISBA",
+		"TG1", "TG10", "TG11", "WG1", "TSWI1", "TSWI1_ISBA",
+		"TSWI_T_ISBA", "WGTOT_T_ISBA", "WGI_T_ISBA", "FMUC",
+		"FMVC", "EVAPC_ISBA", "EVAPC_SEA", "EVAPC_P",
+/
+&NAM_DIAG_SURFn
+                       LSURF_BUDGET = T      , 
+                       N2M          = 2      ,
+                       LCOEF        = T      ,
+                       LSURF_VARS   = T      , 
+		       LSURF_BUDGETC = T     ,
+                       LRESET_BUDGETC = T    ,
+                       LRAD_BUDGET = T       ,
+/
+&NAM_DIAG_SURF_ATMn    
+                       LFRAC        = T , 
+                       LDIAG_GRID   = T ,
+                       !LT2MMW=.TRUE.,
+/
+&NAM_DIAG_ISBAn        
+                       LPGD              = T , 
+                       LSURF_EVAP_BUDGET = T , 
+                       LSURF_MISC_BUDGET = T ,  
+		       !LWATER_BUDGET     = T ,
+                       LPATCH_BUDGET     = T ,
+                       LSURF_MISC_DIF    = T ,
+/
+&NAM_DIAG_TEBn
+   			LUTCI = .TRUE.,
+/
+&NAM_DIAG_SEAICEn
+   			LDIAG_SEAICE      =.TRUE.,
+/
+

@@ -1,0 +1,54 @@
+#
+# File that provides all the defintions for the simulation
+#
+#
+# Name of simulation
+#
+VER_USER_NAME=MYSRC_ncode_r18798_bugcorr_utci_pgd
+#VER_USER_NAME=MASTER
+VER_MPI_NAME=MPIAUTO
+
+# Period to be covered by simulation
+#
+FIRST_YEAR=2018
+LAST_YEAR=2018
+FIRST_MONTH=8
+LAST_MONTH=10
+FIRST_DAY=01
+#LAST_DAY=31
+FIRST_HOUR=00
+LAST_HOUR=24
+
+# Define the model
+#
+MODEL=${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/src/dir_obj-LXifort-SFX-V7-3-0-MPIAUTO-O2/${VER_USER_NAME}/OFFLINE
+PGD_PATH=${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/exe/PGD-LXifort-SFX-V7-3-0-${VER_USER_NAME}-MPIAUTO-O2
+PREP_PATH=${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/exe/PREP-LXifort-SFX-V7-3-0-${VER_USER_NAME}-MPIAUTO-O2
+
+# Define the different directories
+#
+FORCDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/NorCP_AROME_ERAI_ALADIN_1997_2017'
+OUTPUTDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave'
+SRC_SURFEX='${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums'
+
+# Define prefix of the forcing file
+FORCPREFIX='GreenWave_FORCING_3H_ml50m_SCA_VARY'
+
+
+# Definations for PGD, should be consistent with OPTIONS.nam
+# Copied from HCLIM sms/config_exp.h
+SOIL_TEXTURE_VERSION=FAO
+ECOCLIMAP_VERSION=2.2
+# Additional urban physiography specifications for surfex (none|urban)
+SURFEX_URBAN_SPEC=urban
+# copied from config-sh/config.bi in HCLIM
+PGD_DATA_PATH='/nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD'
+CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/ECOCLIMAP/7.3'
+
+# The input files (usually from HCLIM output) for PGD and PREP of this SURFEX OFFLINE run
+INFILE_ICMSHHARM='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/04/01/00/ICMSHFULL+34560.sfx'
+#INFILE_ICMSHFULL='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/05/01/00/ICMSHFULL+35712.sfx'
+INFILE_PGD='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/climate/Const.Clim.sfx'
+
+#INFILE_PREP='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW/archive/2018/07/01/00/SURFXINI.lfi'
+#INFILE_PGD='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/climate/PGD.lfi'
