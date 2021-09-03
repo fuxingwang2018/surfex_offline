@@ -1,0 +1,6 @@
+&naminterp
+ readkey%name  = 'CLSVENT.ZONAL', 
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 
+ #readkey%name  = 'CLSVENT.ZONAL','CLSVENT.MERIDIEN', 

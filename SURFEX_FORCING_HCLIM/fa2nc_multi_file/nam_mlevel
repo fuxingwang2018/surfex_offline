@@ -1,0 +1,8 @@
+&naminterp
+ readkey%name  = 'S062WIND.V.PHYS', 
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 
+ #readkey%name  = 'S065WIND.U.PHYS','S065WIND.V.PHYS','S065HUMI.SPECIFI', 'S065TEMPERATURE',
+ #readkey%name  = 'S055WIND.U.PHYS','S055WIND.V.PHYS','S055HUMI.SPECIFI', 'S055TEMPERATURE',
+ #readkey%name  = 'S062WIND.U.PHYS','S062WIND.V.PHYS','S062HUMI.SPECIFI', 'S062TEMPERATURE',

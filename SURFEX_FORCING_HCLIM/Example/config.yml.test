@@ -1,0 +1,463 @@
+# General netcdf settings
+#netcdf:
+#  filepattern: http://thredds.met.no/thredds/dodsC/meps25epsarchive/@YYYY@/@MM@/@DD@/meps_extracted_2_5km_@YYYY@@MM@@DD@T@HH@Z.nc
+#  offset: 10800
+#  file_inc: 21600
+#  fcint: 21600
+
+# General grib settings
+grib:
+  filepattern: not_defined
+  offset: 0
+  file_inc: 3600
+  fcint: 10800
+  interpolator: nearest
+
+# Orography
+ZS:
+  netcdf:
+    converter:
+      none:
+        name: altitude
+      phi2m:
+        phi:
+          name: surface_geopotential
+  grib:
+    converter:
+      none:
+        parameter: -1
+        type: sfc
+        level: 0
+        tri: 0
+      phi2m:
+        phi:
+          parameter: 6
+          type: sfc
+          level: 0
+          tri: 0
+
+# Reference height Z
+ZREF:
+  screen:
+    constant:
+      value: 2
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: air_temperature_ml
+    constant:
+      value: 12.5
+    grib:
+      converter:
+        none:
+          parameter: -1
+          type: sfc
+          level: 0
+          tri: 0
+# Reference height U
+UREF:
+  screen:
+    constant:
+      value: 10
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: air_temperature_ml
+    constant:
+      value: 12.5
+    grib:
+      converter:
+        none:
+          parameter: -1
+          type: sfc
+          level: 0
+          tri: 0
+
+# Temperature
+TA:
+  screen:
+    netcdf:
+      converter:
+        none:
+          name: air_temperature_2m
+    grib:
+      converter:
+        none:
+          parameter: 11
+          type: sfc
+          level: 2
+          tri: 0
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: air_temperature_ml
+          level: 0.098519629240036
+    grib:
+      converter:
+        none:
+          parameter: 11
+          type: ml
+          level: 65
+          tri: 0
+
+# Specific humidity
+QA:
+  screen:
+    netcdf:
+      converter:
+        none:
+          name: specific_humidity_2m
+        rh2q:
+          rh:
+            name: relative_humidity_2m
+            level: 2
+            units: "%"
+          t:
+            name: air_temperature_2m
+            level: 2
+            units: "K"
+          p:
+            name: surface_air_pressure
+            units: "Pa"
+    grib:
+      converter:
+        none:
+          parameter: 51
+          type: sfc
+          level: 2
+          tri: 0
+        rh2q:
+          rh:
+            parameter: 52
+            type: sfc
+            level: 2
+            tri: 0
+          t:
+            parameter: 11
+            type: sfc
+            level: 2
+            tri: 0
+          p:
+            parameter: 1
+            type: sfc
+            level: 0
+            tri: 0
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: specific_humidity_ml
+          level: 0.098519629240036
+        rh2q:
+          rh:
+            name: relative_humidity_ml
+            level: 0.098519629240036
+            units: "%"
+          t:
+            name: air_temperature_ml
+            level: 0.098519629240036
+            units: "K"
+          p:
+            name: surface_air_pressure
+            units: "Pa"
+    grib:
+      converter:
+        none:
+          parameter: 51
+          type: ml
+          level: 65
+          tri: 0
+        rh2q:
+          rh:
+            parameter: 52
+            type: ml
+            level: 65
+            tri: 0
+          t:
+            parameter: 11
+            type: ml
+            level: 65
+            tri: 0
+          p:
+            parameter: 1
+            type: ml
+            level: 65
+            tri: 0
+
+# Wind speed
+WIND:
+  screen:
+    netcdf:
+      converter:
+        none:
+          name: wind_speed_10m
+        windspeed:
+          x:
+            name: x_wind_10m
+          y:
+            name: y_wind_10m
+    grib:
+      converter:
+        none:
+          parameter: 32
+          type: sfc
+          level: 10
+          tri: 0
+        windspeed:
+          x:
+            parameter: 33
+            type: sfc
+            level: 10
+            tri: 0
+          y:
+            parameter: 34
+            type: sfc
+            level: 10
+            tri: 0
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: wind_speed_ml
+          level: 0.098519629240036
+        windspeed:
+          x:
+            name: x_wind_ml
+            level: 0.098519629240036
+          y:
+            name: y_wind_ml
+            level: 0.098519629240036
+    grib:
+      converter:
+        none:
+          parameter: 207
+          type: sfc
+          level: 10
+          tri: 0
+        windspeed:
+          x:
+            parameter: 33
+            type: ml
+            level: 65
+            tri: 0
+          y:
+            parameter: 34
+            type: ml
+            level: 65
+            tri: 0
+
+# Wind direction
+WIND_DIR:
+  screen:
+    netcdf:
+      converter:
+        none:
+          name: wind_direction_10m
+        winddir:
+          x:
+            name: x_wind_10m
+          y:
+            name: y_wind_10m
+    grib:
+      converter:
+        none:
+          parameter: 31
+          type: sfc
+          level: 10
+          tri: 0
+        winddir:
+          x:
+            parameter: 33
+            type: sfc
+            level: 10
+            tri: 0
+          y:
+            parameter: 34
+            type: sfc
+            level: 10
+            tri: 0
+  ml:
+    netcdf:
+      converter:
+        none:
+          name: wind_direction_ml
+          level: 0.098519629240036
+        winddir:
+          x:
+            name: x_wind_ml
+            level: 0.098519629240036
+          y:
+            name: y_wind_ml
+            level: 0.098519629240036
+    grib:
+      converter:
+        none:
+          parameter: 249
+          type: ml
+          level: 65
+          tri: 0
+        winddir:
+          x:
+            parameter: 33
+            type: ml
+            level: 65
+            tri: 0
+          y:
+            parameter: 34
+            type: ml
+            level: 65
+            tri: 0
+
+# Rainfall rate
+RAIN:
+  netcdf:
+    converter:
+      none:
+        name: rainfall_amount
+        accumulated: False
+        instant: 3600.
+      totalprec:
+        totalprec:
+          name: precipitation_amount_acc
+          accumulated: True
+          instant: 3600.
+        snow:
+          name: snowfall_amount_acc
+          accumulated: True
+          instant: 3600.
+  grib:
+    converter:
+      none:
+        parameter: 221
+        type: sfc
+        level: 0
+        tri: 4
+      totalprec:
+        totalprec:
+          parameter: 61
+          type: sfc
+          level: 0
+          tri: 4
+          instant: 3600.
+        snow:
+          parameter: 185
+          type: sfc
+          level: 0
+          tri: 4
+          instant: 3600.
+
+
+# Snow fall amount rate
+SNOW:
+  netcdf:
+    converter:
+      none:
+        name: snowfall_amount_acc
+        accumulated: True
+        instant: 3600.
+      calcsnow: 
+        totalprec:
+          name: precipitation_amount
+        rh:
+          name: relative_humidity_2m
+          level: 2
+          units: "%"
+        t:
+          name: air_temperature_2m
+          level: 2
+          units: "celsius"
+        p:
+          name: surface_air_pressure
+          units: "Pa"
+
+  grib:
+    converter:
+      none:
+        parameter: 185
+        type: sfc
+        level: 0
+        tri: 4
+        instant: 3600.
+
+# Surface air pressure
+PS:
+  netcdf:
+    converter:
+      none:
+        name: surface_air_pressure
+  grib:
+    converter:
+      none:
+        parameter: 1
+        type: sfc
+        level: 0
+        tri: 0
+
+# Direct shortwave radiation
+DIR_SW:
+  netcdf:
+    converter:
+      none:
+        name: integral_of_surface_downwelling_shortwave_flux_in_air_wrt_time
+        accumulated: True
+        instant: 3600.
+  grib:
+    converter:
+      none:
+        parameter: 117
+        type: sfc
+        level: 0
+        tri: 4
+
+# Direct scattered radiation
+SCA_SW:
+  netcdf:
+    converter:
+      none:
+        name: scattered_short_wave_radiation
+        accumulated: True
+        instant: 3600.
+  constant:
+    value: 0
+  grib:
+    converter:
+      none:
+        parameter: 14
+        type: sfc
+        level: 0
+        tri: 0
+
+# Long wave radiation
+LW:
+  netcdf:
+    converter:
+      none:
+        name: integral_of_surface_downwelling_longwave_flux_in_air_wrt_time
+        accumulated: True
+        instant: 3600.
+  grib:
+    converter:
+      none:
+        parameter: 115
+        type: sfc
+        level: 0
+        tri: 4
+
+# Carbon dioxide
+CO2:
+  netcdf:
+    converter:
+      none:
+        name: carbon_dioxide
+  grib:
+    converter:
+      none:
+        parameter: -1
+        type: sfc
+        level: 0
+        tri: 0
+  constant:
+    value: 0.00062

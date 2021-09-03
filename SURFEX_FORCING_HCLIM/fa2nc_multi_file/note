@@ -1,0 +1,6 @@
+For 'NorCP_AROME_ERAI_ALADIN_1997_2017' (/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_ALADIN_ERAI_1997_2017),  
+the variables u,v,t,q at 50m are available at 3H frequency and others (ps, pr, prsolid, rsds, rlds) at 1H frequency, so we can run SURFEX at 3H frequency.
+
+NorCP_AROME_ECE_ALADIN_1985_2005: 
+HCLIM38h1_ALADIN_GFDL_NorCP_HIST_1985_2005:
+

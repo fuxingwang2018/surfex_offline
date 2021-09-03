@@ -1,0 +1,6 @@
+&naminterp
+ readkey%name  = 'SURFPREC.EAU.CON', 'SURFPREC.NEI.CON', 'SURFPREC.EAU.GEC', 'SURFPREC.NEI.GEC',  
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 
+#readkey%name  = 'SURFFL.COND.L.CO', 'SURFFL.COND.N.CO', 'SURFFL.COND.L.GE', 'SURFFL.COND.N.GE', 

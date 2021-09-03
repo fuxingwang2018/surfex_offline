@@ -1,0 +1,90 @@
+ 'GrW_SURFEX30' =>{
+      'TSTEP'  => '10',                            # Time step
+      'NLON'   => '576',                           # Number of points (x)
+      'NLAT'   => '640',                           # Number of points (y)
+      'LONC'   => '18.0',                          # Longitude of domain centre (degrees)
+      'LATC'   => '59.6',                          # Latitude of domain center (degrees)
+      'LON0'   => '18.0',                          # Reference longitude of the projection (degrees)
+      'LAT0'   => '59.6',                          # Reference latitude of the projection (degrees)
+      'GSIZE'  => '300.',                          # Grid size in meters (x,y)
+
+
+'GrW_STHLM3.0' =>{'NLON' => '150', 'NLAT' => '150', 'LONC'   => '18.0', 'LATC' => '59.3', 'LON0'   => '18.0', 'LAT0'  => '59', 'GSIZE'  => '3000.',},
+'GrW_SURFEX300'=>{'NLON' => '565', 'NLAT' => '629', 'LONC' => '18.0',  'LATC' => '59.6', 'LON0' => '18.0', 'LAT0' => '59.6','GSIZE'  => '300.', }
+
+
+Model grid:
+/home/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_defaultPhys_ForSURFEXoffline/
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_defaultPhys_ForSURFEXoffline/
+
+HCLIM simulation at 3km with default physiography:
+/home/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys
+
+The simulation at 3km is done:
+/home/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW
+
+July 2018 is done at 1km over Stockholm:
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM/
+
+1. surface wind speed (zonal and meredional) are not available in the original nc output.
+In addition, the default rsdsdir (direct SW radiation) output is at 3H frequency (we need 1H frequency).
+They (uasm, vasm, rsdsdir) were converted from fa to nc manually by using script: extract_lowest_mlevel_to_nc_GreenWave.sh
+Another problem with rsdsdir and rsds in the fa files is that the values at hour 00000 do not exist. 
+This is solved by adding the values at hour 00001 to 00000 (nighttime, so both values should be 0) using the script ../fa2nc_multi_file/sel_value_GreenWave.sh. 
+
+2. The model grid /nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/PGD_lfi.nc is converted from the lfi file 
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_defaultPhys_ForSURFEXoffline/climate/PGD.lfi using script ../fa2nc/fa2nc_GreenWave.sh.
+
+3. griddes_GreenWave_300m.txt.original is obtained by 'cdo griddes', but both # gridID 1 and # gridID 2 exist in this file (do not know why). So # gridID 1 has been removed and only # gridID 2 is kept in griddes_GreenWave_300m.txt. 
+
+4. SURFEX_FORC/HCLIM38_Summer2018_STKHM_NEW/GreenWave_FORCING_screen_SCA_VARY_2018070100_2018080100.nc manually changed to 
+SURFEX_FORC/HCLIM38_Summer2018_STKHM_NEW/GreenWave_FORCING_screen_SCA_VARY_2018070100_2018073124.nc (20180180100 -> 2018073124)
+
+5. SCA_SW is not zero in AROME run, but it is zero in the script got from Patrick (used for WATCH data). 
+SW_METHOD is set to SCA_VARY in GreenWave offline SURFEX forcing.
+
+6. The PGD is very expensive when running with the new physiography. About 27-28 hours. PREP is faster (<1 hour) 
+The OFFLINE is expensive too with the 300m grid (565*629), About 16-17 hours for one month simulation.
+SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_NEW_defaultPhys_PGD_PREP (PGD and PREP step) -> SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_NEW_defaultPhys (OFFLINE step)
+SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_NEW_PGD_PREP (PGD and PREP step) -> SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_NEW (OFFLINE step)
+
+7. The variable related to UTCI (Town scheme) is is not in the default output.
+Modifications are needed to have UTCI output (src/MYSRC_ncode_r18798_bugcorr_utci/init_outfn_tebn.F90).
+
+8. If LSELECT = TRUE, variables in CSELECT will be in the output. 
+   If LSELECT = FALSE, all variables will be in the output (CSELECT does not matter). 
+
+
+9. The two runs (default and new physiography) use different input files for PGD/PREP. 
+The files are got from the two parent HCLIM runs (with default and new physiography).
+
+10. the convertion from fa to netcdf does not work for e.g., SFX.UTCI_IN, SFX.UTCI_OUTSUN, SFX.UTCI_OUTSHAD ... from HCLIM38 output file.
+The error is:
+$ gl_c38 -f -nc /nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/archive/2018/07/01/00/ICMSHHARM+00744.sfx -n nam_utci
+Found name SFX.UTCI_OUTSUN 001:148-  950-105@20180701_00:00+744h00m tri:000 000 UTCI_OUTSUN
+ 
+ Done setup_readkey
+ 
+READ SFX.UTCI_OUTSUN > 001:148-  950-105@20180701_00:00+744h00m tri:000 000 UTCI_OUTSUN
+No NETCDF conversion for: 001:148-  950-105@20180701_00:00+744h00m tri:000 000 UTCI_OUTSUN
+ Read namelist number           2
+---------------
+
+Probably the resaon is that these variables are not included in the nc_tab.h file.
+/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/lib/util/gl/inc/nc_tab.h
+The T2M_TEB can be converted from fa to netcdf successfuly because this variable is in the nc_tab.h.
+Not tested yet if the variables SFX.UTCI_IN ... are put in nc_tab.h.
+
+
+ 
+
+In summary, these scripts are run (in order):
+extract_lowest_mlevel_to_nc_GreenWave.sh
+sel_value_GreenWave.sh
+regrid_GreenWave.sh
+prepare_HCLIM_file_arome.sh
+
+
+

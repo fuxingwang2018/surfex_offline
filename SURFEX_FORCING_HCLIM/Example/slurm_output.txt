@@ -1,0 +1,33 @@
+here2
+Warning: eccodes not found. Needed for reading grib files
+netcdf
+Constructed forcing object netCDF
+Forcing type is netCDF
+Define netcdf forcing
+ZS
+/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/sfx_ofl_forc_test_data/arome_arctic_extracted_2_5km_20151021T15Z_test.nc
+[1;92mINFO: Interpolating...257560 points[0m
+[1;92mINFO: Interpolation finished[0m
+ZREF
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+UREF
+Creating forcing for: 2015102115 time_step:0
+TA
+# read_time_step:  0.000130891799927
+QA
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+# read_time_step:  0.174654006958
+PS
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+# read_time_step:  0.155851125717
+DIR_SW
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+# read_time_step:  0.141753911972
+SCA_SW
+# read_time_step:  0.0559458732605
+LW
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+# read_time_step:  0.14824795723
+RAIN
+[1;92mINFO: Assume interpolator is ok because dimensions and the first points are the same[0m
+[1;31mError: snowfall_amount_acc is missing in file![0m
