@@ -1,0 +1,90 @@
+
+# Fuxing Wang, June 2019
+
+0. How to start
+
+a. Convert HCLIM fa outputs to nc format 
+   run the script under fa2nc (height file, constant variable)
+   and under fa2nc_multi_file (atmospheric variable files)
+
+   For aladin 12km simulation, not all the variables have hourly values.
+   husL65, uamL65, vamL65 only have 3 hourly values.
+   We then use 3 hourly values for all the variables. 
+   Select 3-hourly values from 1-hourly values & 
+   add the record 1 August 00:00 after the time 31 July 21:00. 
+   using script: fa2nc_multi_file/sel_value.sh
+
+b. Regrid of HCLIM output 
+   The SURFEX grid depends on the forcing data.
+   If someone wants to have a different grid/resolution with the corresponding HCLIM output, a spatial interpolation is required
+   Run Regrid/regrid.sh to interpolate the model grids from low resolution to high resolution (e.g., 3000m --> 500m)
+
+c. Run prepare_HCLIM_file.sh to integrate all variables into a 2D netcdf file
+   If SCA_VARY, change the value of the 1st record 
+   INTEGRAL_OF_SURFACE_DOWNWELLING_SHORTWAVE_FLUX_IN_AIR_WRT_TIME, and
+   SCATTERED_SHORT_WAVE_RADIATION, to zero using the script: 
+   fa2nc_multi_file/change_var_value.sh
+
+d. Run run.sh for create_forcing
+
+e. If forcing time step is not 1H (e.g., 3H), 
+ - change in config.yml* file from instant=3600 to instant=10800 before run run.sh
+ - after run.sh, run change_time_ncname.sh to correct FRC_TIME_STP in forcing netcdf file (in folder SURFEX_FORC) from 3600 to 10800. 
+
+f. Initial condition for PREP
+   If needed, run /home/sm_fuxwa/Script/lfi2fa.sh to get initial condition file in lfi format for PREP/SURFEX
+
+Notes:
+--- MetCoOP, Svalbard, MUMS, MUMS_TEST, ... are the different experiments
+--- some scripts (prepare_HCLIM_file.sh, run.sh, ...) are under the experiment.
+--- The scripts change_fname.sh, change_var_value.sh under fa2nc_multi_file, and change_nc_name.sh under MUMS might also needed.
+
+1. pattern file got from:
+http://thredds.met.no/thredds/catalog/aromearcticarchive/2015/10/21/catalog.html
+
+2. The SURFEX offline forcing variables vs HCLIM38 output variables:
+ZS
+	ZS:long_name = "Surface_Orography" ;
+ZREF
+	ZREF:long_name = "Reference_Height" ;
+	ZREF:units = "m" ;
+UREF, 
+	UREF:long_name = "Reference_Height_for_Wind" ;
+	UREF:units = "m" ;
+Tair, tas_fp
+	Tair:long_name = "Near_Surface_Air_Temperature" ;
+	Tair:units = "K" ;
+	Tair:measurement_height = "30m" ;
+Qair, huss_fp
+	Qair:long_name = "Near_Surface_Specific_Humidity" ;
+	Qair:units = "Kg/Kg" ;
+	Qair:measurement_height = "30m" ;
+Wind, uas_fp vas_fp
+	Wind:long_name = "Wind_Speed" ;
+	Wind:units = "m/s" ;
+	Wind:measurement_height = "30m" ;
+DIR_SWdown, rsdsdir
+	DIR_SWdown:long_name = "Surface_Indicent_Direct_Shortwave_Radiation" ;
+	DIR_SWdown:units = "W/m2" ;
+SCA_SWdown, 
+	SCA_SWdown:long_name = "Surface_Incident_Diffuse_Shortwave_Radiation" ;
+	SCA_SWdown:units = "W/m2" ;
+LWdown, rlds
+	LWdown:long_name = "Surface_Incident_Longwave_Radiation" ;
+	LWdown:units = "W/m2" ;
+PSurf, ps_fp
+	PSurf:long_name = "Surface_Pressure" ;
+	PSurf:units = "Pa" ;
+Rainf, prrain
+	Rainf:long_name = "Rainfall_Rate" ;
+	Rainf:units = "Kg/m2/s" ;
+Snowf, prrsnow
+	Snowf:long_name = "Snowfall_Rate" ;
+	Snowf:units = "Kg/m2/s" ;
+CO2air
+	CO2air:long_name = "Near_Surface_CO2_Concentration" ;
+	CO2air:units = "Kg/m3" ;
+Wind_DIR
+	Wind_DIR:long_name = "Wind_Direction" ;
+	Wind_DIR:units = "deg" ;
+

@@ -1,0 +1,5 @@
+&naminterp
+ readkey%name  = 'SURFACCPLUIE', 'SURFACCNEIGE',
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 

@@ -1,0 +1,37 @@
+#
+# File that provides all the defintions for the forcing
+#
+# Method of shortwave radiation
+#
+#SW_METHOD=SCA_VARY
+SW_METHOD=SCA_ZERO
+
+# Start time of HCLIM simulation
+HCLIMDTG='2015010100'
+HCLIMTIME='2015/01/01/00'
+
+# Start/End time: YYYYMMDDHH
+#DTG='2015010100'
+#NEXT_DTG='2015011500'
+#DTG='2018010100'
+#NEXT_DTG='2018010106'
+DTG='2015102115'
+NEXT_DTG='2015102118'
+
+# ml (model level) or screen (2m for T,Q 10m for U,V)
+# ZREF: "Reference_Height" ; units = "m" ;
+# UREF: "Reference_Height_for_Wind" ; units = "m" ;
+ZREF=ml
+UREF=ml
+
+# choose: constant, netcdf
+zval_opt=netcdf
+uval_opt=netcdf
+
+# SURFEX offline experiment name
+#SURFEXEXP=MUMS
+SURFEXEXP=Svalbard
+
+# Directory and file name of the 2D output from HCLIM simulation
+HCLIM_FORC_OUT=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/sfx_ofl_forc_test_data
+OUTF_NAME_STANDARD=HCLIM38_FORC_${SURFEXEXP}_${SW_METHOD}_${HCLIMDTG}

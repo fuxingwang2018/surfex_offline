@@ -1,0 +1,6 @@
+/home/sm_fuxwa/software/ofl-sfx-forc/forcing/driverForcing.py:162: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  area=yaml.load(open(area_file))
+/home/sm_fuxwa/software/ofl-sfx-forc/forcing/driverForcing.py:363: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  default_conf = yaml.load(open(yaml_config)) or sys.exit(1)
+/home/sm_fuxwa/software/ofl-sfx-forc/forcing/driverForcing.py:368: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  user_settings = yaml.load(open(args.config)) or {}

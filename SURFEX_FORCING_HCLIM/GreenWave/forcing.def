@@ -1,0 +1,57 @@
+#
+# File that provides all the defintions for the forcing
+#
+# Method of shortwave radiation
+#
+SW_METHOD=SCA_VARY
+#SW_METHOD=SCA_ZERO
+
+# Start time of HCLIM simulation
+
+YEAR='2018'  # change
+MONTH='10'  # change
+MONTHNEXT='11' # change
+DAYSTART='01'
+DAYEND='31'  # change
+HOURSTART='00'
+HOUREND='24'
+
+TSTEP='3H'
+
+# For 1H or 3H time step
+#HCLIMDTG='2018070100'  # GreenWave
+HCLIMDTG='3H_300m_'${YEAR}${MONTH}  # NorCP
+#HCLIMDTG='2018070100_3H'
+
+#HCLIMTIME='2018/07/01/00'
+#HCLIMTIME=${YEAR}/${MONTH}/${DAYSTART}/${HOURSTART}
+
+# Start/End time: YYYYMMDDHH
+DTG=${YEAR}${MONTH}${DAYSTART}${HOURSTART}
+NEXT_DTG=${YEAR}${MONTHNEXT}${DAYSTART}${HOURSTART}
+NEXT_DTG_for_SURFEX=${YEAR}${MONTH}${DAYEND}${HOUREND}
+
+# ml (model level 1...65 and height level at 50m, 100m ...), screen (2m for T,Q 10m for U,V)
+# ZREF: "Reference_Height" ; units = "m" ;
+# UREF: "Reference_Height_for_Wind" ; units = "m" ;
+ZREF=ml
+UREF=ml
+
+# Model Level: e.g., L65, 50m
+mlevel=50m
+
+# choose: constant, netcdf
+zval_opt=constant
+uval_opt=constant
+
+# SURFEX offline experiment name
+SURFEXEXP=GreenWave
+
+# HCLIM coupled experiment name
+#HCLIMEXP=HCLIM38_Summer2018_STKHM_NEW 
+#HCLIMEXP=HCLIM38_Summer2018_STKHM_NEW_defaultPhys
+HCLIMEXP=NorCP_AROME_ERAI_ALADIN_1997_2017
+
+# Directory and file name of the 2D output from HCLIM simulation
+HCLIM_FORC_OUT=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/HCLIM38_SIM_2D/${HCLIMEXP}
+OUTF_NAME_STANDARD=HCLIM38_FORC_${SURFEXEXP}_${ZREF}${mlevel}_${SW_METHOD}_${HCLIMDTG}

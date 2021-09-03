@@ -1,0 +1,10 @@
+conf_proj_domain:
+   LONC: 18.0
+   LATC: 59.6
+   LON0: 18.0
+   LAT0: 59.6
+   NLONS: 300
+   NLATS: 300
+   GSIZE: 500.
+   EZONE: 11
+

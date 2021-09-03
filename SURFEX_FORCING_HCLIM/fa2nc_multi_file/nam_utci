@@ -1,0 +1,7 @@
+&naminterp
+ readkey%name  = 'SFX.T2M_TEB', 
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/
+ #readkey%name  = 'SFX.UTCI_IN','SFX.UTCI_OUTSUN','SFX.UTCI_OUTSHAD' 
+ #READKEY%FANAME='',

@@ -1,0 +1,26 @@
+#
+# File that provides all the defintions for regriding
+#
+# Method of shortwave radiation
+#
+#SW_METHOD=SCA_VARY
+#SW_METHOD=SCA_ZERO
+
+# GreenWave
+HCLIMDTG='2018070100'  
+# MUMS
+#HCLIMDTG='201807'     
+
+#HCLIMTIME='2018/07/01/00'
+#HCLIMTIME='netcdf/1H'
+
+# Start/End time: YYYYMMDDHH
+#DTG='2018070100'
+#NEXT_DTG='2018080100'
+
+# SURFEX offline experiment name
+#SURFEXEXP=MUMS
+
+# Directory and file name of the 2D output from HCLIM simulation
+#HCLIM_FORC_OUT=/nobackup/rossby21/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/HCLIM38_SIM_2D
+#OUTF_NAME_STANDARD=HCLIM38_FORC_${SURFEXEXP}_${SW_METHOD}_${HCLIMDTG}

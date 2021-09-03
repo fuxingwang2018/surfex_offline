@@ -1,0 +1,42 @@
+#
+# File that provides all the defintions for the forcing
+#
+# Method of shortwave radiation
+#
+SW_METHOD=SCA_VARY
+#SW_METHOD=SCA_ZERO
+
+# Start time of HCLIM simulation
+
+# AROME 3km
+HCLIMDTG='2018070100'
+
+# ALADIN 12km
+#HCLIMDTG='201807'
+
+#HCLIMTIME='2018/07/01/00'
+
+# Start/End time: YYYYMMDDHH
+DTG='2018070100'
+NEXT_DTG='2018080100'
+
+# ml or screen
+# ZREF: "Reference_Height" ; units = "m" ;
+# UREF: "Reference_Height_for_Wind" ; units = "m" ;
+ZREF=ml
+UREF=ml
+
+# choose: constant, netcdf
+zval_opt=constant
+uval_opt=constant
+
+# SURFEX offline experiment name
+SURFEXEXP=MUMS
+
+# HCLIM coupled experiment name
+#HCLIMEXP=NorCP_ALADIN_ERAI
+HCLIMEXP=NorCP_ERAI_ALD_AROME
+
+# Directory and file name of the 2D output from HCLIM simulation
+HCLIM_FORC_OUT=/nobackup/rossby21/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/HCLIM38_SIM_2D/${HCLIMEXP}
+OUTF_NAME_STANDARD=HCLIM38_FORC_${SURFEXEXP}_${ZREF}_${SW_METHOD}_${HCLIMDTG}

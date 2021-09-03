@@ -1,0 +1,5 @@
+&naminterp
+ readkey%name  = 'SURFTENS.TURB.ZO','SURFTENS.TURB.ME', 
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 

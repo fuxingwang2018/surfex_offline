@@ -1,0 +1,14 @@
+
+RM="/bin/rm -f"
+MV="/bin/mv -f"
+CP="/bin/cp -f"
+MKDIR="/bin/mkdir"
+RMDIR="/bin/rmdir"
+
+SED="/bin/sed"
+CAT="/bin/cat"
+GREP="/bin/grep"
+CUT="/bin/cut"
+
+MPIRUN=`which mpirun`
+

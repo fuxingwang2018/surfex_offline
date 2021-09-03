@@ -1,0 +1,6 @@
+&naminterp
+ readkey%name  = 'SURFRAYT DIR SUR',  
+ ref_date      = 19970101,
+ ref_hour      = 00,
+/ 
+ #readkey%name  = 'SURFRAYT DIR SUR', 'SURFRAYT SOLA DE', 
