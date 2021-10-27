@@ -17,40 +17,48 @@ ly=(2018)   # last year
 #mms=(01 02 03 04 05 06 07 08 09 10 11 12) # months
 mms=(07) # months
 
-# AROME 3km NEW Physiography
-exp="GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW"
-inpath="/nobackup/smhid13/sm_isari/hm_home/GreenWave/${exp}/archive"
-outpath="/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW/"
-EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_2018070100
+# AROME 3km NEW Physiography, old 2020
+#exp="GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW"
+#inpath="/nobackup/smhid13/sm_isari/hm_home/GreenWave/${exp}/archive"
+#outpath="/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW/"
+#EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_2018070100
 
-
-# AROME 3km default physiogrphy
+# AROME 3km default physiogrphy, old 2020
 #exp="GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys"
 #inpath="/nobackup/smhid13/sm_isari/hm_home/GreenWave/${exp}/archive"
 #outpath="/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW_defaultPhys/"
 #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys_2018070100
 
+# AROME 3km default physiogrphy, new 2021-10
+exp="GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized"
+inpath="/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/${exp}/archive"
+outpath="/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys/"
+#EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized_2018070100
+EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_2018070100
+
 # ---gl
 #gl="/home/sm_davli/dev/gl_HCLIM38h1_SMHI/bifrost/bin/gl"
-gl="/nobackup/rossby21/sm_fuxwa/hm_home/hm38ref_soilinit/bin/gl"
+#gl="/nobackup/rossby21/sm_fuxwa/hm_home/hm38ref_soilinit/bin/gl"
+gl="/nobackup/rossby26/proj/rossby/joint_exp/harmony/HCLIM43_Eval/HCLIM38_Evaluation_Install/bin/gl"
 
 # 
-mlevel=62
+mlevel=65 #62
 
 # -- namelist
 #namelist="nam_utci"
 #namelist="nam_clsvent"
-#namelist="nam_rsdsdir"
-namelist="nam_mlevel"
+namelist="nam_rsdsdir"
+#namelist="nam_mlevel"
 
 # outputname
+# For GreenWave, we only need uamL, vamL, husL, taL, rsdsdir (3H netcdf available but we need to convert 1H from fa)
 #var_name_out='utci_in_fp'
 #var_name_out='uasm_fp'
 #var_name_out='vasm_fp'
 #var_name_out='clsvent'
-#var_name_out='rsdsdir_fp'
+var_name_out='rsdsdir_fp'
 #var_name_out="uamL${mlevel}_fp"
-var_name_out="vamL${mlevel}_fp"
+#var_name_out="vamL${mlevel}_fp"
 #var_name_out="husL${mlevel}_fp"
 #var_name_out="taL${mlevel}_fp"
 

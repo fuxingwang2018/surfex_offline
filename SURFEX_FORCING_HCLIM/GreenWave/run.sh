@@ -35,12 +35,14 @@
 . ./forcing.def
 
 #
-OFFLINE_HOME=/home/sm_fuxwa/SURFEX_FORCING_HCLIM/${SURFEXEXP}
-OUTPUT_DIR=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/SURFEX_FORC/${HCLIMEXP}
+#OFFLINE_HOME=/home/sm_fuxwa/SURFEX_FORCING_HCLIM/${SURFEXEXP}
+#OUTPUT_DIR=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/SURFEX_FORC/${HCLIMEXP}
+OFFLINE_HOME=/home/sm_fuxwa/surfex_offline/SURFEX_FORCING_HCLIM/${SURFEXEXP}
+OUTPUT_DIR=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/SURFEX_FORC/${HCLIMEXP}
 
 # Define configurations
 # time step: by default 3600s (1H)
-if [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" ]]; then
+if [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
     config="-c config.yml.${ZREF}${mlevel}"
     time_step=3600
     #time_step=10800

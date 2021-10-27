@@ -1,5 +1,5 @@
 &naminterp
- readkey%name  = 'S062WIND.V.PHYS', 
+ readkey%name  = 'S065TEMPERATURE', 
  ref_date      = 19970101,
  ref_hour      = 00,
 / 

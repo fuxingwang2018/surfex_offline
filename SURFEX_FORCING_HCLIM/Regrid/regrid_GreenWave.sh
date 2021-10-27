@@ -11,20 +11,23 @@
 HCLIMDTG='2018070100'  
 
 # Definations
-#experiment="HCLIM38_Summer2018_STKHM_NEW"
-#experiment="HCLIM38_Summer2018_STKHM_NEW_defaultPhys"
-experiment="NorCP_AROME_ERAI_ALADIN_1997_2017"
+#experiment="HCLIM38_Summer2018_STKHM_NEW" # CentOS6
+#experiment="HCLIM38_Summer2018_STKHM_NEW_defaultPhys" #CentOS6
+#experiment="NorCP_AROME_ERAI_ALADIN_1997_2017"
+experiment="HCLIM38_Summer2018_STKHM_DEFphys"  #CentOS7
 
 # Output resolution
 OUT_RES=300m
 
 # AROME 3km
+# For GreenWave, if the variables are converted from fa to nc, we use from_fa_1H
+# For variables in nc format from HCLIM output like *50m*, rsds, prrain ...  we use from_AROME_1H
 # Choose: 'from_AROME_1H', 'from_AROME_3H', 'from_fa_1H', 'from_fa_3H'
-var_type='from_AROME_1H'
+var_type='from_fa_1H'
 
-Freq='3H'
+Freq='1H' #'3H'
 
-mlevel=L62
+mlevel=L65
 
 if [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW" ]]; then
     OUT_DIR=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW
@@ -45,6 +48,15 @@ elif [[ "$experiment" == "NorCP_AROME_ERAI_ALADIN_1997_2017" ]]; then
     EXPNAME=NorCP_AROME_ERAI_ALADIN_1997_2017
     HCLIMNAME_IN=${experiment}
     HCLIMNAME_OUT=${experiment}
+elif [[ "$experiment" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
+    OUT_DIR=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys
+    EXPNAME=GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized
+    if [[ "$var_type" == "from_fa_1H" ]]; then
+        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
+    elif [[ "$var_type" != "from_fa_1H" ]]; then
+        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized 
+    fi
+    HCLIMNAME_OUT=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
 fi
 
 
@@ -55,11 +67,14 @@ if [[ "$var_type" == "from_AROME_1H" ]]; then
         #VAR_LIST_arome=('pr' 'prsolid' 'rsds' 'rlds')
         VAR_LIST_arome=('ps')
     else
-        HCLIMSIM=/nobackup/smhid13/sm_isari/hm_home/GreenWave/${EXPNAME}/archive/2018/07/01/00
+        #HCLIMSIM=/nobackup/smhid13/sm_isari/hm_home/GreenWave/${EXPNAME}/archive/2018/07/01/00
+        HCLIMSIM=/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/${EXPNAME}/archive/2018/07/01/00
         #VAR_LIST_arome=('tas_fp' 'huss_fp' 'rsds_fp' 'rlds_fp' 'ps_fp' 'prrain_fp' 'prsnow_fp')
+        #VAR_LIST_arome=('rsds_fp' 'rlds_fp' 'ps_fp' 'prrain_fp' 'prsnow_fp')
+        VAR_LIST_arome=('rsdsdir_fp')
         #VAR_LIST_arome=('ua50m_fp' 'va50m_fp' 'ta50m_fp' 'hus50m_fp')
         #VAR=('tas_P01_sfx' 'tas_P02_sfx' 'tas_town_sfx' 'hurs_fp')
-        VAR_LIST_arome=('ts_sfx')
+        #VAR_LIST_arome=('ts_sfx')
     fi
 
 elif [[ "$var_type" == "from_AROME_3H" ]]; then 
@@ -73,9 +88,11 @@ elif [[ "$var_type" == "from_AROME_3H" ]]; then
 
 elif [[ "$var_type" == "from_fa_1H" ]]; then
     # Converted from fa files
-    HCLIMSIM=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
+    #HCLIMSIM=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
+    HCLIMSIM=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
     #VAR_LIST_arome=('uasm_fp' 'vasm_fp', 'husL65_fp' 'taL65_fp' 'uamL65_fp' 'vamL65_fp' 'rsdsdir_fp')
-    VAR_LIST_arome=("hus${mlevel}_fp" "ta${mlevel}_fp" "uam${mlevel}_fp" "vam${mlevel}_fp")
+    #VAR_LIST_arome=("hus${mlevel}_fp" "ta${mlevel}_fp" "uam${mlevel}_fp" "vam${mlevel}_fp")
+    VAR_LIST_arome=('rsdsdir_fp')
 
 elif [[ "$var_type" == "from_fa_3H" ]]; then
     # Converted from fa files
@@ -92,7 +109,7 @@ grid_info=griddes_GreenWave_300m.txt
 
 # Interpolation
 # AROME 3km
-if [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" ]]; then
+if [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" || "$experiment" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
   if [[ "$var_type" == "from_AROME_1H" ]]; then
     for ivar in ${VAR_LIST_arome[@]} ; do
       echo 'variable:' ${ivar} 

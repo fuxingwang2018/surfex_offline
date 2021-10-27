@@ -3,12 +3,12 @@
 #https://slurm.schedmd.com/sbatch.html
 #https://www.nsc.liu.se/support/batch-jobs/introduction/
 
-#SBATCH -N 6 --exclusive ##number of cores
+#SBATCH -N 1 --exclusive ##number of cores
 #SBATCH -J SFX_OFL
 ###SBATCH -n 4  ##ntasks
 ###SBATCH --ntasks-per-core=2 ##Request the maximum ntasks be invoked on each core. Meant to be used with the --ntasks option.
-###SBATCH -C fat
-#SBATCH -t 40:00:00
+###SBATCH -C fat # only needed when running pgd.exe
+#SBATCH -t 24:00:00
 ###SBATCH --mem-per-cpu=20000
 # for OpenMP:
 #SBATCH --cpus-per-task=1
@@ -51,7 +51,7 @@ ${RM} SEAFLUX_PROGNOSTIC.OUT.nc
 ${RM} SURF_ATM_DIAGNOSTICS.OUT.nc
 ${RM} SURF_ATM.OUT.nc
 ${RM} lai.* f_* F_*
-#${RM} ecoclimap* ECOCLIMAP*
+${RM} ecoclimap* ECOCLIMAP*
 ${RM} GlobalLake*
 ${RM} BLD* LAKE*
 ${RM} FRAC_* WALL_*
@@ -59,6 +59,11 @@ ${RM} clay* sand*
 ${RM} soc_* gtopo30*
 ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat 
 
+# Use correct OPTIONS.nam for default and new Physiography (use 'default Physiography' by default)
+ln -sf OPTIONS.nam.defaultPhysiography OPTIONS.nam  
+if [ $SURFEX_URBAN_SPEC = "urban" ] ; then
+    ln -sf OPTIONS.nam.newPhysiography OPTIONS.nam  
+fi
 
 #The simulation domain (grid) information
 #ln -s $FORCDIR'/grid_file.txt' .
@@ -67,7 +72,7 @@ ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat
 # The pysiography data
 . ./Prepare_pgd
 
-# The pysiography maps from Isabel R. 
+# The pysiography maps from Isabel R. Not used anymore, but keep it for a period in case needed until deleted. 
  ##ln -sf /home/sm_isari/INPUT_files/UrbanSis_physiography/PGD/* .
  #ln -sf /nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD/* .
  ##ln -sf /nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/40h1/PGD/* .
@@ -75,16 +80,24 @@ ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat
  #ln -sf /nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/ECOCLIMAP/7.3/* .
 
 # The input files for PGD and PREP (usually from HCLIM run) 
-ln -sf ${INFILE_ICMSHHARM} ICMSHFULL+00000.sfx
-#ln -sf ${INFILE_ICMSHFULL} .
-#ln -sf ${INFILE_PREP} .
-ln -sf ${INFILE_PGD} Const.Clim.sfx
-#ln -sf ${INFILE_PGD} PGD.lfi
+# 2021 Oct: use common names PREPINI.lfi and PGDINI.lfi to avoid confusion.
+if [ $INIT_FILE = "ICMSHFULL" ] ; then
+    ln -sf ${INFILE_ICMSHHARM} ICMSHFULL+00000.sfx
+    ##ln -sf ${INFILE_ICMSHFULL} .
+    ln -sf ${INFILE_PGD} Const.Clim.sfx
+    # Convert FA to LFI, because CTYPE in &NAM_PREP_SEAFLUX does not accept FA.
+    SFXTOOLS='/nobackup/rossby26/proj/rossby/joint_exp/harmony/HCLIM43_Eval/HCLIM38_Evaluation_Install/bin/SFXTOOLS'
+    ${SFXTOOLS} sfxfa2lfi --sfx-fa--file ICMSHFULL+00000.sfx --sfx-lfi-file ICMSHFULL+00000.lfi
+    ${SFXTOOLS} sfxfa2lfi --sfx-fa--file Const.Clim.sfx --sfx-lfi-file Const.Clim.lfi
+    ln -sf ICMSHFULL+00000.lfi PREPINI.lfi
+    ln -sf Const.Clim.lfi      PGDINI.lfi
+elif [ $INIT_FILE = "SURFXINI" ] ; then
+    #ln -sf ${INFILE_PREP} .
+    #ln -sf ${INFILE_PGD} PGD.lfi
+    ln -sf ${INFILE_PREP} PREPINI.lfi
+    ln -sf ${INFILE_PGD}  PGDINI.lfi
+fi
 
-# Convert FA to LFI, because CTYPE in &NAM_PREP_SEAFLUX does not accept FA.
-SFXTOOLS='/nobackup/rossby18/rossby/joint_exp/harmony/HCLIM38h1_NORCP_ALADIN_ECE_commit/bin/SFXTOOLS'
-${SFXTOOLS} sfxfa2lfi --sfx-fa--file ICMSHFULL+00000.sfx --sfx-lfi-file ICMSHFULL+00000.lfi
-${SFXTOOLS} sfxfa2lfi --sfx-fa--file Const.Clim.sfx --sfx-lfi-file Const.Clim.lfi
 
 
 # The executables
@@ -107,12 +120,17 @@ fi
 DEBUGDIR=$OUTPUTDIR/${EXPNAME}/${DEBUGNAME}/
 if [ ! -e ${DEBUGDIR} ] ; then
     ${MKDIR} ${DEBUGDIR}
+else
+    ${RM} ${DEBUGDIR}/LISTING_OFFLINE*.txt
 fi
 
 # Initial conditions 
 ${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
 ${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
 
+# PGD needs long time, so first run pgd.exe and prep.exe and exit here
+#exit
+# And then run SURFEX from here
 
 yy=${FIRST_YEAR}
 while [  ${yy} -le ${LAST_YEAR} ]; do

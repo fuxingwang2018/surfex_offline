@@ -15,17 +15,21 @@
 # Definations the regridded files
 
 if [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_NEW ]]; then 
-    # Case of New physiography
+    # Case of New physiography, CentOS6
     HCLIMARCH=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW
     HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_300m
 elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_NEW_defaultPhys ]]; then
-    # Case of default physiography
+    # Case of default physiography, CentOS6
     HCLIMARCH=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW_defaultPhys
     HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys_300m
 elif [[ "$HCLIMEXP" == NorCP_AROME_ERAI_ALADIN_1997_2017 ]]; then
     # NorCP AROME 3km
     HCLIMARCH=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${HCLIMEXP}
     HCLIMNAME=${HCLIMEXP}
+elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_DEFphys ]]; then
+    # Case of default physiography, CentOS7
+    HCLIMARCH=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys
+    HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
 fi
 
 OUTF_NAME_TMP=HCLIM38_FORC_${SURFEXEXP}_TMP_${HCLIMDTG}.nc
@@ -53,10 +57,10 @@ if [[ "$UREF" == *"screen"* ]]; then
     VAR_UAS=uasm #uas
     VAR_VAS=vasm #vas
 elif [[ "$UREF" == *"ml"* ]]; then 
-    #VAR_UAS=uam${mlevel}
-    #VAR_VAS=vam${mlevel}
-    VAR_UAS=ua${mlevel}
-    VAR_VAS=va${mlevel}
+    VAR_UAS=uam${mlevel}
+    VAR_VAS=vam${mlevel}
+    #VAR_UAS=ua${mlevel}
+    #VAR_VAS=va${mlevel}
 fi
 
 

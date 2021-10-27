@@ -4,8 +4,8 @@
 EXPNAME=GreenWave
 INDIR=@YYYY@@MM@@DD@@HH
 
-#FAFILENAME=PGD_prel.fa
-#NCFILENAME=PGD_prel.nc
+#FAFILENAME=PGD_prel.fa ! did not use
+#NCFILENAME=PGD_prel.nc ! did not use
 #FAFILENAME=PGD.lfi
 #NCFILENAME=PGD_lfi.nc
 FAFILENAME=Const.Clim.sfx

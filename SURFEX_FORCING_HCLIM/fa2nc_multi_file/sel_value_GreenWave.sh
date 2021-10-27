@@ -10,13 +10,14 @@
 #VAR_LIST_1=('tas' 'huss' 'uas' 'vas' 'rsds' 'rlds' 'ps' 'prrain' 'prsnow')
 # rsdsdir, ua50m, va50m, ta50m, hus50m are directly arome 3h NC output
 
-var_case='1H_to_3H'
+#var_case='1H_to_3H'
 #var_case='add_last_record'
-#var_case='add_first_record'
+var_case='add_first_record'
 
 #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_2018070100
 #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys_2018070100
-EXPNAME=NorCP_AROME_ERAI_ALADIN_1997_2017
+#EXPNAME=NorCP_AROME_ERAI_ALADIN_1997_2017
+EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_2018070100
 
 if [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_2018070100" ]]; then
     # AROME 3km NEW Physiography
@@ -27,6 +28,10 @@ elif [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP
     # AROME 3km default physiogrphy
     DIR1=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEW_defaultPhys
     DIR2=/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/archive/2018/07/01/00
+
+elif [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_2018070100" ]]; then
+    # AROME 3km default physiogrphy
+    DIR1=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys
 
 elif [[ "$EXPNAME" == "NorCP_AROME_ERAI_ALADIN_1997_2017" ]]; then
     # NorCP_AROME_ERAI_ALADIN_1997_2017

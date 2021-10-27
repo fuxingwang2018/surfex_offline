@@ -12,8 +12,8 @@ VER_MPI_NAME=MPIAUTO
 # Usually no need to change: FIRST_DAY, FIRST_HOUR, LAST_HOUR
 FIRST_YEAR=2018
 LAST_YEAR=2018
-FIRST_MONTH=8
-LAST_MONTH=10
+FIRST_MONTH=7
+LAST_MONTH=7
 FIRST_DAY=01
 #LAST_DAY=31
 FIRST_HOUR=00
@@ -28,14 +28,17 @@ PREP_PATH=${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/exe/PREP-LXifort-SFX-V7-
 # Define the different directories
 #
 # Forcing data directory
-FORCDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/NorCP_AROME_ERAI_ALADIN_1997_2017'
+#FORCDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/NorCP_AROME_ERAI_ALADIN_1997_2017'
+FORCDIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/HCLIM38_Summer2018_STKHM_DEFphys'
 # Output directory
-OUTPUTDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave'
+#OUTPUTDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave'
+OUTPUTDIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave'
 #
 #SRC_SURFEX='${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums'
 
 # Define prefix of the forcing file
-FORCPREFIX='GreenWave_FORCING_3H_ml50m_SCA_VARY'
+#FORCPREFIX='GreenWave_FORCING_3H_ml50m_SCA_VARY'
+FORCPREFIX='GreenWave_FORCING_mlL65_SCA_VARY'
 
 
 # Definations for PGD, should be consistent with OPTIONS.nam
@@ -44,15 +47,28 @@ SOIL_TEXTURE_VERSION=FAO
 ECOCLIMAP_VERSION=2.2
 # Additional urban physiography specifications for surfex (none|urban)
 # none for default physiography | urban for new physiography 
-SURFEX_URBAN_SPEC=urban
+SURFEX_URBAN_SPEC=none
 # copied from config-sh/config.bi in HCLIM
-PGD_DATA_PATH='/nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD'
-CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/ECOCLIMAP/7.3'
+#PGD_DATA_PATH='/nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD'
+#CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/ECOCLIMAP/7.3'
+PGD_DATA_PATH='/nobackup/smhid13/sm_uandr/HARMONIE/data/climate/PGD'
+# If the *.bin files do not exist, use the corresponding HCLIM climate directory.
+CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/climate/ECOCLIMAP/40h1.1'
 
 # The input files (usually from HCLIM output) for PGD (INFILE_PGD) and PREP (INFILE_ICMSHHARM or INFILE_PREP) of this SURFEX OFFLINE run
-INFILE_ICMSHHARM='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/04/01/00/ICMSHFULL+34560.sfx'
-#INFILE_ICMSHFULL='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/05/01/00/ICMSHFULL+35712.sfx'
-INFILE_PGD='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/climate/Const.Clim.sfx'
+# Also check run_SURFEX.sh (how these files are linked) and OPTIONS.nam (which files are used under NAM_PREP_SEAFLUX & NAM_PREP_SURF_ATM)
+# Choose 'ICMSHFULL' or 'SURFXINI' to use initialization files with different grids (full or reduced by 11) 
+INIT_FILE='SURFXINI'
+# ICMSHFULL, Full grids in ICMSHFULL+*.sfx and Const.Clim.sfx
+#INFILE_ICMSHHARM='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/04/01/00/ICMSHFULL+34560.sfx'
+##INFILE_ICMSHFULL='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/2018/05/01/00/ICMSHFULL+35712.sfx'
+#INFILE_PGD='/nobackup/rossby21/rossby/joint_exp/norcp/NorCP_AROME_ERAI_ALADIN_1997_2017/climate/Const.Clim.sfx'
 
+# SURFXINI, Reduced grids (-11) in SURFXINI.lfi and PGD.lfi:
+INFILE_PREP='/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized/archive/2018/07/01/00/SURFXINI.lfi'
+INFILE_PGD='/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized/climate/PGD.lfi'
+
+# Wrong simulations done by Isable 2020, do not use
 #INFILE_PREP='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW/archive/2018/07/01/00/SURFXINI.lfi'
 #INFILE_PGD='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/climate/PGD.lfi'
+
