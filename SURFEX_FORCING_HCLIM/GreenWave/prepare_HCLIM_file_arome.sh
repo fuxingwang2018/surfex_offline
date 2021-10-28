@@ -8,6 +8,7 @@
 # 
 # Fuxing Wang, 29 May 2019, Rossby SMHI
 #
+module load NCO/4.8.1-nsc1
 # Load the definations for the machine
 . ./BiNSC.def
 . ./forcing.def
@@ -30,6 +31,10 @@ elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_DEFphys ]]; then
     # Case of default physiography, CentOS7
     HCLIMARCH=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys
     HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
+elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_NEWphys ]]; then
+    # Case of default physiography, CentOS7
+    HCLIMARCH=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEWphys
+    HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys
 fi
 
 OUTF_NAME_TMP=HCLIM38_FORC_${SURFEXEXP}_TMP_${HCLIMDTG}.nc
@@ -48,8 +53,6 @@ if [[ "$ZREF" == *"screen"* ]]; then
     VAR_TAIR=tas
     VAR_QAIR=huss
 elif [[ "$ZREF" == *"ml"* ]]; then 
-    #VAR_TAIR=taL${mlevel}
-    #VAR_QAIR=husL${mlevel}
     VAR_TAIR=ta${mlevel}
     VAR_QAIR=hus${mlevel}
 fi
@@ -57,10 +60,13 @@ if [[ "$UREF" == *"screen"* ]]; then
     VAR_UAS=uasm #uas
     VAR_VAS=vasm #vas
 elif [[ "$UREF" == *"ml"* ]]; then 
-    VAR_UAS=uam${mlevel}
-    VAR_VAS=vam${mlevel}
-    #VAR_UAS=ua${mlevel}
-    #VAR_VAS=va${mlevel}
+    if [[ "${mlevel}" == "L"* ]]; then 
+        VAR_UAS=uam${mlevel}
+        VAR_VAS=vam${mlevel}
+    elif [[ "${mlevel}" == *"m" ]]; then
+        VAR_UAS=ua${mlevel}
+        VAR_VAS=va${mlevel}
+    fi
 fi
 
 

@@ -42,7 +42,8 @@ OUTPUT_DIR=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFE
 
 # Define configurations
 # time step: by default 3600s (1H)
-if [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
+#if [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_NEW_defaultPhys" ]] || [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
+if [[ "${HCLIMEXP}" == "HCLIM38_Summer2018_STKHM"* ]]; then
     config="-c config.yml.${ZREF}${mlevel}"
     time_step=3600
     #time_step=10800
@@ -50,7 +51,6 @@ elif [[ "${HCLIMEXP}" == "NorCP_AROME_ERAI_ALADIN_1997_2017" ]]; then
     config="-c config.yml.${ZREF}${mlevel}.${TSTEP}"
     time_step=10800
 fi
-
 
 [ -f $OFFLINE_HOME/user_$DTG.yml ] && config="-c $OFFLINE_HOME/user_$DTG.yml"
 
@@ -87,6 +87,11 @@ elif [[ "$SURFEXEXP" == *"GreenWave"* ]]; then
     forcing_pattern="-p ${HCLIM_FORC_OUT}/${OUTF_NAME_STANDARD}.nc"
 fi 
 [ "$FORCING_PATTERN" != "" ] && forcing_pattern=$FORCING_PATTERN
+
+# Creat OUTPUT_DIR
+if [ ! -e ${OUTPUT_DIR} ] ; then
+    mkdir -p  ${OUTPUT_DIR}
+fi
 
 # Run create_forcing
 create_forcing $DTG $NEXT_DTG $area_def -m conf_proj_domain $forcing_pattern -t ${time_step} -i ${input_format} $config ${converters} ${opts} -o ${output_format} -of ${OUTPUT_DIR}/${SURFEXEXP}_FORCING_${ZREF}${mlevel}_${SW_METHOD}_${DTG}_${NEXT_DTG}.nc || exit 1

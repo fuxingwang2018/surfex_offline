@@ -58,6 +58,7 @@ ${RM} FRAC_* WALL_*
 ${RM} clay* sand*
 ${RM} soc_* gtopo30*
 ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat 
+${RM} *.bin
 
 # Use correct OPTIONS.nam for default and new Physiography (use 'default Physiography' by default)
 ln -sf OPTIONS.nam.defaultPhysiography OPTIONS.nam  

@@ -38,7 +38,7 @@ NEXT_DTG_for_SURFEX=${YEAR}${MONTH}${DAYEND}${HOUREND}
 ZREF=ml
 UREF=ml
 
-# Model Level: e.g., L65, 50m
+# Model Level: e.g., L65, L62, 50m
 mlevel=L65
 
 # choose: constant, netcdf
@@ -52,7 +52,8 @@ SURFEXEXP=GreenWave
 #HCLIMEXP=HCLIM38_Summer2018_STKHM_NEW 
 #HCLIMEXP=HCLIM38_Summer2018_STKHM_NEW_defaultPhys
 #HCLIMEXP=NorCP_AROME_ERAI_ALADIN_1997_2017
-HCLIMEXP=HCLIM38_Summer2018_STKHM_DEFphys
+#HCLIMEXP=HCLIM38_Summer2018_STKHM_DEFphys
+HCLIMEXP=HCLIM38_Summer2018_STKHM_NEWphys
 
 # Directory and file name of the 2D output from HCLIM simulation
 #HCLIM_FORC_OUT=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/${SURFEXEXP}/HCLIM38_SIM_2D/${HCLIMEXP}

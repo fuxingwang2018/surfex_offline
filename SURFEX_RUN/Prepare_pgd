@@ -82,8 +82,13 @@ for SOC_FILE in $SOC_FILES ; do
   done
 done
 
-
-ln -s $CLIMDIR/*.bin .
+# Creat OUTPUT_DIR
+if [ ! -e $CLIMDIR/*.bin ] ; then
+    echo "Could not find $CLIMDIR/*.bin, change CLIMDIR in simulation.def"
+    exit 1 
+else
+    ln -sf $CLIMDIR/*.bin .
+fi
 
 # Additional urban physiography specifications for surfex
 if [ $SURFEX_URBAN_SPEC = "urban" ] ; then
