@@ -323,12 +323,17 @@
     LPWEBB         = .FALSE.,
 /
 &NAM_PREP_SEAFLUX
-    CFILE_SIC      ='ICMSHFULL+00000',
+    !CFILE_SIC      ='ICMSHFULL+00000', !NorCP as forcing
+    !CFILE_SIC      ='SURFXINI',  ! Isabel's HCLIM run as forcing
+    CFILE_SIC      = 'PREPINI', ! same for all forcing
     CTYPE_SIC      ='LFI',
-    CFILE_SEAFLX   ='ICMSHFULL+00000',
+    !CFILE_SEAFLX   ='ICMSHFULL+00000',  !NorCP as forcing
+    !CFILE_SEAFLX   ='SURFXINI',  ! Isabel's HCLIM run as forcing
+    CFILE_SEAFLX   ='PREPINI', ! Same for all forcing
     CTYPE          ='LFI',
-    CFILEPGD_SEAFLX= 'Const.Clim',
-    !CFILEPGD_SEAFLX= 'PGD',
+    !CFILEPGD_SEAFLX= 'Const.Clim',  !NorCP as forcing
+    !CFILEPGD_SEAFLX= 'PGD',  ! Isabel's HCLIM run as forcing
+    CFILEPGD_SEAFLX= 'PGDINI', ! Same for all forcing
     CTYPEPGD       = 'LFI',
     LSEA_SBL       = .FALSE.,
 /
@@ -348,17 +353,19 @@
    LCLIM_LAKE   = T,
 /
 &NAM_PREP_SURF_ATM
-                   CFILE = ICMSHFULL+00000,
+                   !CFILE = ICMSHFULL+00000, !NorCP as forcing
                    !CFILE = ICMSHHARM+00000,
-                   !CFILE = SURFXINI,
+                   !CFILE = SURFXINI, ! Isabel's HCLIM run as forcing
+                   CFILE = 'PREPINI', ! same for all forcing
                    CFILETYPE = 'LFI',
                    !CFILETYPE = 'GRIB',
                    !CFILETYPE = 'NC',
-                   !CFILEPGD = 'PGD',
-                   CFILEPGD = 'Const.Clim',
+                   !CFILEPGD = 'PGD',  ! Isabel's HCLIM run as forcing
+                   !CFILEPGD = 'Const.Clim', ! NorCP as forcing
+                   CFILEPGD = 'PGDINI', ! Same for all forcing
                    CFILEPGDTYPE = 'LFI',
                    NYEAR  = 2018,
-                   NMONTH = 8,
+                   NMONTH = 7,
                    NDAY   = 1,
                    XTIME  = 0.0,
 /

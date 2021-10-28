@@ -105,10 +105,12 @@ fi
 ln -sf ${PGD_PATH} pgd.exe
 ln -sf ${PREP_PATH} prep.exe
 
-# PGD ("The physiographic fields") 
-./pgd.exe 
-# PREP ("Initialization of the prognostic fields")
-./prep.exe
+if [ ${RUNEXE} == 'PGDPREP' ] ; then
+  # PGD ("The physiographic fields") 
+  ./pgd.exe 
+  # PREP ("Initialization of the prognostic fields")
+  ./prep.exe
+fi
 
 
 # Simulation outputs
@@ -129,9 +131,13 @@ fi
 ${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
 ${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
 
-# PGD needs long time, so first run pgd.exe and prep.exe and exit here
-#exit
-# And then run SURFEX from here
+
+if [ ${RUNEXE} == 'PGDPREP' ] ; then
+  exit
+elif [ ${RUNEXE} == 'OFFLINE' ] ; then
+  ln -sf ${PGD_PREP_DIR}/PGD0.txt  PGD.txt  
+  ln -sf ${PGD_PREP_DIR}/PREP0.txt PREP.txt 
+fi
 
 yy=${FIRST_YEAR}
 while [  ${yy} -le ${LAST_YEAR} ]; do

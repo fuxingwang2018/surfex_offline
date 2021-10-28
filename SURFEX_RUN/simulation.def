@@ -48,11 +48,11 @@ ECOCLIMAP_VERSION=2.2
 # Additional urban physiography specifications for surfex (none|urban)
 # none for default physiography | urban for new physiography 
 SURFEX_URBAN_SPEC=none
-# copied from config-sh/config.bi in HCLIM
+# copied from config-sh/config.bi in HCLIM (PGD_DATA_PATH & ECOCLIMAP_DATA_PATH)
 #PGD_DATA_PATH='/nobackup/smhid13/sm_esbol/harmonie_climate/40h1.1_test/PGD'
 #CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/harmonie_climate/ECOCLIMAP/7.3'
 PGD_DATA_PATH='/nobackup/smhid13/sm_uandr/HARMONIE/data/climate/PGD'
-# If the *.bin files do not exist, use the corresponding HCLIM climate directory.
+# If the *.bin files do not exist, use the corresponding HCLIM output climate directory.
 CLIMDIR='/nobackup/smhid13/sm_uandr/HARMONIE/data/climate/ECOCLIMAP/40h1.1'
 
 # The input files (usually from HCLIM output) for PGD (INFILE_PGD) and PREP (INFILE_ICMSHHARM or INFILE_PREP) of this SURFEX OFFLINE run
@@ -71,4 +71,9 @@ INFILE_PGD='/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38
 # Wrong simulations done by Isable 2020, do not use
 #INFILE_PREP='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW/archive/2018/07/01/00/SURFXINI.lfi'
 #INFILE_PGD='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/climate/PGD.lfi'
+
+# PGD needs long time, so we run pgd.exe + prep.exe and surfex offline separately
+RUNEXE='OFFLINE' #PGDPREP
+# if RUNEXE=OFFLINE, set PGD_PREP_DIR
+PGD_PREP_DIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_DEFphs_PGD_PREP/DEBUG'
 
