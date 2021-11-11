@@ -35,7 +35,7 @@ EXPNAME=${PWD##*/}
 # Remove useless files from the old simulations
 ${RM} log*
 #${RM} slurm_*.txt
-#${RM} PREP.txt PGD.txt
+${RM} PREP.txt PGD.txt
 ${RM} ISBA_DIAG_CUMUL.OUT.nc
 ${RM} ISBA_DIAGNOSTICS.OUT.nc
 ${RM} ISBA_VEG_EVOLUTION.OUT.nc
@@ -59,6 +59,7 @@ ${RM} clay* sand*
 ${RM} soc_* gtopo30*
 ${RM} Z0_TOWN.dat D*_DIF.dat GARDEN_FRAC.dat 
 ${RM} *.bin
+${RM} tree_height_metcoop.dat
 
 # Use correct OPTIONS.nam for default and new Physiography (use 'default Physiography' by default)
 ln -sf OPTIONS.nam.defaultPhysiography OPTIONS.nam  
@@ -106,6 +107,7 @@ ln -sf ${PGD_PATH} pgd.exe
 ln -sf ${PREP_PATH} prep.exe
 
 if [ ${RUNEXE} == 'PGDPREP' ] ; then
+  # PGD.txt and PREP.txt are output from pgd.exe and prep.exe, these *.txt are input for OFFLINE exe.  
   # PGD ("The physiographic fields") 
   ./pgd.exe 
   # PREP ("Initialization of the prognostic fields")
@@ -127,12 +129,10 @@ else
     ${RM} ${DEBUGDIR}/LISTING_OFFLINE*.txt
 fi
 
-# Initial conditions 
-${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
-${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
-
-
 if [ ${RUNEXE} == 'PGDPREP' ] ; then
+  # Initial conditions 
+  ${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
+  ${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
   exit
 elif [ ${RUNEXE} == 'OFFLINE' ] ; then
   ln -sf ${PGD_PREP_DIR}/PGD0.txt  PGD.txt  

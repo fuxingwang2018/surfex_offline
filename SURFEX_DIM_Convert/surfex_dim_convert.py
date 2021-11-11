@@ -64,6 +64,16 @@ elif HCLIMEXP=='MUMS_Forcing_500m':
     file_surfex_2d='HCLIM38_FORC_MUMS_ml_SCA_ZERO_2018070100.nc'
     dir_surfex_month='SURFEX_FORC'
 
+elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEWphys':
+    dir_surfex_sim='/nobackup/rossby26/users/sm_fuxwa/SURFEX_EXP/GreenWave/'+str(SURFEXEXP)
+    dir_surfex_2d='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
+    file_surfex_2d='HCLIM38_FORC_GreenWave_mlL65_SCA_VARY_300m_2018070100.nc'
+
+elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_DEFphys':
+    dir_surfex_sim='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/'+str(SURFEXEXP)
+    dir_surfex_2d='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
+    file_surfex_2d='HCLIM38_FORC_GreenWave_mlL65_SCA_VARY_300m_2018070100.nc'
+
 var_nature_tile_list = ['T2M_P', 'Q2M_P', 'HU2M_P', 'ZON10M_P', 'MER10M_P', 'LE_P', 'H_P', 'RN_P', 'SWD_P', 'SWU_P', 'LWD_P', 'LWU_P']
 var_isba_list = ['T2M_ISBA', 'Q2M_ISBA', 'HU2M_ISBA', 'ZON10M_ISBA', 'MER10M_ISBA', 'LE_ISBA', 'H_ISBA', 'RN_ISBA', 'SWD_ISBA', 'SWU_ISBA', 'LWD_ISBA', 'LWU_ISBA']
 
@@ -85,8 +95,8 @@ nc_file_1D_id = Dataset(nc_file_1D, 'r')  # Dataset is the class behavior to ope
 nc_attrs_1d, nc_dims_1d, nc_vars_1d = nd.ncdump(nc_file_1D_id)
 
 # only for ISBA_DIAGNOSTICS.OUT, because its 1D file is too big, we select few variables to convert to 2D!!!
-#if name_surfex_file == 'ISBA_DIAGNOSTICS.OUT':  
-#    nc_vars_1d = set(nc_vars_1d).intersection(set(var_isba_list))
+if name_surfex_file == 'ISBA_DIAGNOSTICS.OUT':  
+    nc_vars_1d = list(set(nc_vars_1d).intersection(set(var_isba_list)))
 
 # Extract data from NetCDF file
 time_1d = nc_file_1D_id.variables['time'][:]
@@ -155,7 +165,6 @@ for var in nc_vars_2d:
 for var in nc_vars_1d:
   if nc_file_1D_id.variables[var].dimensions != ('time', 'Number_of_Tile', 'Number_of_points'):
     if var != 'time' and var != 'Projection_Type' and var != 'FRC_TIME_STP':
-      #if name_surfex_file == 'ISBA_DIAGNOSTICS.OUT' and  var in var_isba_list:  # only for ISBA_DIAGNOSTICS.OUT !!!
   	var_1D = nc_file_1D_id.variables[var][:]  # shape is time, Number_of_points
   	print 'shape of var_1D:', np.shape(var_1D), var
 

@@ -7,5 +7,5 @@
 #SBATCH -e slurm_error.txt
 #SBATCH -o slurm_output.txt
 
-python surfex_dim_convert.py 
+python main.py 
 exit 0

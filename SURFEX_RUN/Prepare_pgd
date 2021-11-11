@@ -82,18 +82,19 @@ for SOC_FILE in $SOC_FILES ; do
   done
 done
 
-# Creat OUTPUT_DIR
-if [ ! -e $CLIMDIR/*.bin ] ; then
-    echo "Could not find $CLIMDIR/*.bin, change CLIMDIR in simulation.def"
-    exit 1 
-else
-    ln -sf $CLIMDIR/*.bin .
-fi
+# Link ecoclimap*_covers_param.bin
+for i in $CLIMDIR/*.bin; do
+    if [ -e $i ] ; then
+        ln -sf $i .
+    else
+        echo "Could not find $i, change CLIMDIR in simulation.def"
+    fi
+done
 
 # Additional urban physiography specifications for surfex
 if [ $SURFEX_URBAN_SPEC = "urban" ] ; then
  ln -s $PGD_DATA_PATH/*.dat .  
- rm ecoclimap*.dat
+ #rm ecoclimap*.dat
 fi
 
 #exit

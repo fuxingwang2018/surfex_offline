@@ -11,8 +11,8 @@ def get_conf():
 
     HCLIMEXP  = config.get("conf_surfex_dim_convert", "HCLIMEXP")
     SURFEXEXP = config.get("conf_surfex_dim_convert", "SURFEXEXP")
-    name_surfex_file = config.get("conf_surfex_dim_convert", "name_surfex_file")
+    name_surfex_file_list = (config.get("conf_surfex_dim_convert", "name_surfex_file")).split(',')
 
-    return HCLIMEXP, SURFEXEXP, name_surfex_file
+    return HCLIMEXP, SURFEXEXP, name_surfex_file_list
 
 
