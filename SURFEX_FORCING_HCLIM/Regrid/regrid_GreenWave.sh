@@ -15,7 +15,8 @@ HCLIMDTG='2018070100'
 #experiment="HCLIM38_Summer2018_STKHM_NEW_defaultPhys" #CentOS6, 2020, wrong
 #experiment="NorCP_AROME_ERAI_ALADIN_1997_2017"
 #experiment="HCLIM38_Summer2018_STKHM_DEFphys"  #CentOS7, 2021, correct
-experiment="HCLIM38_Summer2018_STKHM_NEWphys"  #CentOS7, 2021, correct
+#experiment="HCLIM38_Summer2018_STKHM_NEWphys"  #CentOS7, 2021, correct
+experiment="HCLIM38_Summer2018_STKHM_2050phys"  #CentOS7, 2021, correct
 
 # Output resolution
 OUT_RES=300m
@@ -62,6 +63,14 @@ elif [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEWphys" ]]; then
         HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_newCode_NEWphysJul2018_Optimized
     fi
     HCLIMNAME_OUT=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys
+elif [[ "$experiment" == "HCLIM38_Summer2018_STKHM_2050phys" ]]; then
+    EXPNAME=GreenWave_HCLIM38_CentOS7_newCode_Phys2050_Jul2018_Opt
+    if [[ "$var_type" == "from_fa_1H" ]]; then
+        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys
+    elif [[ "$var_type" != "from_fa_1H" ]]; then
+        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_newCode_Phys2050_Jul2018_Opt
+    fi
+    HCLIMNAME_OUT=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys
 fi
 
 #OUT_DIR=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
@@ -76,9 +85,8 @@ if [[ "$var_type" == "from_AROME_1H" ]]; then
     else
         #HCLIMSIM=/nobackup/smhid13/sm_isari/hm_home/GreenWave/${EXPNAME}/archive/2018/07/01/00
         HCLIMSIM=/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/${EXPNAME}/archive/2018/07/01/00
-        #VAR_LIST_arome=('tas_fp' 'huss_fp')
-        VAR_LIST_arome=('rsds_fp' 'rlds_fp' 'ps_fp' 'prrain_fp' 'prsnow_fp')
-        #VAR_LIST_arome=('ua50m_fp' 'va50m_fp' 'ta50m_fp' 'hus50m_fp')
+        #VAR_LIST_arome=('rsds_fp' 'rlds_fp' 'ps_fp' 'prrain_fp' 'prsnow_fp' 'tas_fp' 'huss_fp')
+        VAR_LIST_arome=('ua50m_fp' 'va50m_fp' 'ta50m_fp' 'hus50m_fp')
         #VAR=('tas_P01_sfx' 'tas_P02_sfx' 'tas_town_sfx' 'hurs_fp')
         #VAR_LIST_arome=('ts_sfx')
     fi
@@ -96,8 +104,7 @@ elif [[ "$var_type" == "from_fa_1H" ]]; then
     # Converted from fa files
     #HCLIMSIM=/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
     HCLIMSIM=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/${experiment}
-    VAR_LIST_arome=("hus${mlevel}_fp" "ta${mlevel}_fp" "uam${mlevel}_fp" "vam${mlevel}_fp")
-    #VAR_LIST_arome=('rsdsdir_fp')
+    VAR_LIST_arome=("hus${mlevel}_fp" "ta${mlevel}_fp" "uam${mlevel}_fp" "vam${mlevel}_fp" "rsdsdir_fp")
 
 elif [[ "$var_type" == "from_fa_3H" ]]; then
     # Converted from fa files

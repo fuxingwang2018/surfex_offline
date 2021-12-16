@@ -35,6 +35,10 @@ elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_NEWphys ]]; then
     # Case of default physiography, CentOS7
     HCLIMARCH=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEWphys
     HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys
+elif [[ "$HCLIMEXP" == HCLIM38_Summer2018_STKHM_2050phys ]]; then
+    # Case of default physiography, CentOS7
+    HCLIMARCH=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_2050phys
+    HCLIMNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys
 fi
 
 OUTF_NAME_TMP=HCLIM38_FORC_${SURFEXEXP}_TMP_${HCLIMDTG}.nc

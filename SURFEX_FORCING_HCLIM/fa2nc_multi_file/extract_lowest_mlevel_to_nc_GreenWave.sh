@@ -17,7 +17,7 @@ ly=(2018)   # last year
 #mms=(01 02 03 04 05 06 07 08 09 10 11 12) # months
 mms=(07) # months
 
-PHYSIOGRAPHY="NEW" #DEFAULT
+PHYSIOGRAPHY="2050" #"NEW" #DEFAULT
 
 if [[ "$PHYSIOGRAPHY" == "DEFAULT" ]]; then
 
@@ -50,6 +50,15 @@ elif [[ "$PHYSIOGRAPHY" == "NEW" ]]; then
     #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_newCode_NEWphysJul2018_Optimized_2018070100
     EXPNAME="GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys_2018070100"
 
+elif [[ "$PHYSIOGRAPHY" == "2050" ]]; then
+
+    # AROME 3km 2050 Future physiogrphy, new 2021-11
+    exp="GreenWave_HCLIM38_CentOS7_newCode_Phys2050_Jul2018_Opt"
+    inpath="/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/${exp}/archive"
+    outpath="/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_2050phys/"
+    #EXPNAME="GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_newCode_Phys2050_Jul2018_Opt_2018070100"
+    EXPNAME="GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys_2018070100"
+
 fi
 
 # ---gl
@@ -57,9 +66,8 @@ gl="/nobackup/rossby26/proj/rossby/joint_exp/harmony/HCLIM43_Eval/HCLIM38_Evalua
 
 # 
 # For GreenWave, we only need uamL, vamL, husL, taL, rsdsdir (3H netcdf available but we need to convert 1H from fa)
-mlevel=L65 #L62, L65
-#var_list=('rsdsdir')
-var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel}) 
+mlevel=L62 #L62, L65
+var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel} 'rsdsdir') 
 
 # -- namelist
 #namelist="nam_utci"

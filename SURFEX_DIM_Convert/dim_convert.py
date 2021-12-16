@@ -21,7 +21,7 @@ import os, sys
 
 #########################################################
 
-def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile):
+def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, var_isba_list):
   #
   # Read 1D netcdf file
   #

@@ -20,7 +20,8 @@ var_case='add_first_record'
 #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys_2018070100
 #EXPNAME=NorCP_AROME_ERAI_ALADIN_1997_2017
 #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_2018070100
-EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys_2018070100
+#EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys_2018070100
+EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys_2018070100
 
 if [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_2018070100" ]]; then
     # AROME 3km NEW Physiography, 2020, wrong
@@ -39,6 +40,10 @@ elif [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_2018070100
 elif [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_NEWphys_2018070100" ]]; then
     # AROME 3km NEW physiogrphy, 2021, correct
     DIR1=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_NEWphys
+
+elif [[ "$EXPNAME" == "GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_2050phys_2018070100" ]]; then
+    # AROME 3km 2050 physiogrphy, 2021, correct
+    DIR1=/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_2050phys
 
 elif [[ "$EXPNAME" == "NorCP_AROME_ERAI_ALADIN_1997_2017" ]]; then
     # NorCP_AROME_ERAI_ALADIN_1997_2017

@@ -84,6 +84,6 @@ for name_surfex_file in name_surfex_file_list:
     nc_file_2D = dir_surfex_2d + '/HCLIM38_SIM_2D/' + HCLIMEXP + '/' + file_surfex_2d  
     nc_file_out = dir_surfex_sim + '/OUT_2D/' + name_surfex_file + '.2D.nc'
 
-    dim_convert.nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile)
+    dim_convert.nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, var_isba_list)
 
 
