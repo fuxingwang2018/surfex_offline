@@ -39,12 +39,8 @@ elif HCLIMEXP=='NorCP_ERAI_ALD_AROME':
     dir_surfex_2d='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/MUMS'
     file_surfex_2d='HCLIM38_FORC_MUMS_ml_SCA_ZERO_2018070100.nc'
 
-elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEW':
-    dir_surfex_sim='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave/'+str(SURFEXEXP)
-    dir_surfex_2d='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
-    file_surfex_2d='HCLIM38_FORC_GreenWave_ml_SCA_VARY_2018070100.nc'
-
-elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEW_defaultPhys':
+elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEW' \
+	or HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEW_defaultPhys':
     dir_surfex_sim='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave/'+str(SURFEXEXP)
     dir_surfex_2d='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
     file_surfex_2d='HCLIM38_FORC_GreenWave_ml_SCA_VARY_2018070100.nc'
@@ -61,12 +57,10 @@ elif HCLIMEXP=='MUMS_Forcing_500m':
     file_surfex_2d='HCLIM38_FORC_MUMS_ml_SCA_ZERO_2018070100.nc'
     dir_surfex_month='SURFEX_FORC'
 
-elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEWphys':
-    dir_surfex_sim='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/'+str(SURFEXEXP)
-    dir_surfex_2d='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
-    file_surfex_2d='HCLIM38_FORC_GreenWave_mlL65_SCA_VARY_300m_2018070100.nc'
+elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_NEWphys' \
+	or HCLIMEXP=='HCLIM38_Summer2018_STKHM_DEFphys'\
+	or HCLIMEXP=='HCLIM38_Summer2018_STKHM_2050phys':
 
-elif HCLIMEXP=='HCLIM38_Summer2018_STKHM_DEFphys':
     dir_surfex_sim='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/'+str(SURFEXEXP)
     dir_surfex_2d='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave'
     file_surfex_2d='HCLIM38_FORC_GreenWave_mlL65_SCA_VARY_300m_2018070100.nc'

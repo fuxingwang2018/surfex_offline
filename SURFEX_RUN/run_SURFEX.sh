@@ -4,7 +4,7 @@
 #https://www.nsc.liu.se/support/batch-jobs/introduction/
 
 #SBATCH -N 1 --exclusive ##number of cores
-#SBATCH -J SFX_OFL
+#SBATCH -J SFXDRL65
 ###SBATCH -n 4  ##ntasks
 ###SBATCH --ntasks-per-core=2 ##Request the maximum ntasks be invoked on each core. Meant to be used with the --ntasks option.
 ###SBATCH -C fat # only needed when running pgd.exe
@@ -100,17 +100,24 @@ elif [ $INIT_FILE = "SURFXINI" ] ; then
     ln -sf ${INFILE_PGD}  PGDINI.lfi
 fi
 
-
-
-# The executables
-ln -sf ${PGD_PATH} pgd.exe
-ln -sf ${PREP_PATH} prep.exe
-
 if [ ${RUNEXE} == 'PGDPREP' ] ; then
+  # The executables
+  ln -sf ${PGD_PATH} pgd.exe
+  ln -sf ${PREP_PATH} prep.exe
   # PGD.txt and PREP.txt are output from pgd.exe and prep.exe, these *.txt are input for OFFLINE exe.  
   # PGD ("The physiographic fields") 
   ./pgd.exe 
   # PREP ("Initialization of the prognostic fields")
+  ./prep.exe
+elif [ ${RUNEXE} == 'PGD' ] ; then
+  # PGD.txt and PREP.txt are output from pgd.exe and prep.exe, these *.txt are input for OFFLINE exe.  
+  # PGD ("The physiographic fields") 
+  ln -sf ${PGD_PATH} pgd.exe
+  ./pgd.exe 
+elif [ ${RUNEXE} == 'PREP' ] ; then
+  # PREP ("Initialization of the prognostic fields")
+  ln -sf ${PGD_DIR}/PGD0.txt  PGD.txt  
+  ln -sf ${PREP_PATH} prep.exe
   ./prep.exe
 fi
 
@@ -134,9 +141,16 @@ if [ ${RUNEXE} == 'PGDPREP' ] ; then
   ${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
   ${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
   exit
+elif [ ${RUNEXE} == 'PGD' ] ; then
+  ${CP} PGD.txt  ${DEBUGDIR}/PGD0.txt
+  exit
+elif [ ${RUNEXE} == 'PREP' ] ; then
+  # Initial conditions 
+  ${CP} PREP.txt ${DEBUGDIR}/PREP0.txt
+  exit
 elif [ ${RUNEXE} == 'OFFLINE' ] ; then
-  ln -sf ${PGD_PREP_DIR}/PGD0.txt  PGD.txt  
-  ln -sf ${PGD_PREP_DIR}/PREP0.txt PREP.txt 
+  ln -sf ${PGD_DIR}/PGD0.txt  PGD.txt  
+  ln -sf ${PREP_DIR}/PREP0.txt PREP.txt 
 fi
 
 yy=${FIRST_YEAR}

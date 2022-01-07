@@ -18,7 +18,7 @@
 
 # set name of job
 #SBATCH --job-name=SFX_FORC
-##SBATCH -J SFX_FORC
+##SBATCH -J SFXFORC
 
 # mail alert at start, end and abortion of execution
 ###SBATCH --mail-type=ALL

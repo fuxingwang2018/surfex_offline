@@ -28,16 +28,13 @@ PREP_PATH=${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums/exe/PREP-LXifort-SFX-V7-
 # Define the different directories
 #
 # Forcing data directory
-#FORCDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/NorCP_AROME_ERAI_ALADIN_1997_2017'
 FORCDIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/SURFEX_FORC/HCLIM38_Summer2018_STKHM_DEFphys'
 # Output directory
-#OUTPUTDIR='/nobackup/rossby24/users/sm_fuxwa/SURFEX_OUT/GreenWave'
 OUTPUTDIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave'
 #
 #SRC_SURFEX='${HOME}/SURFEX_HCLIM_cy38h12_with_ISBAv8_mums'
 
 # Define prefix of the forcing file
-#FORCPREFIX='GreenWave_FORCING_3H_ml50m_SCA_VARY'
 FORCPREFIX='GreenWave_FORCING_mlL65_SCA_VARY'
 
 
@@ -73,7 +70,8 @@ INFILE_PGD='/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38
 #INFILE_PGD='/nobackup/smhid13/sm_isari/hm_home/GreenWave/GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys/climate/PGD.lfi'
 
 # PGD needs long time, so we run pgd.exe + prep.exe and surfex offline separately
-RUNEXE='OFFLINE' #PGDPREP
+RUNEXE='OFFLINE' #PGD #PREP #PGDPREP
 # if RUNEXE=OFFLINE, set PGD_PREP_DIR
-PGD_PREP_DIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_DEFphs_PGD_PREP/DEBUG'
+PGD_DIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_DEFphs_PGD/DEBUG'
+PREP_DIR='/nobackup/rossby26/users/sm_fuxwa/SURFEX_OUT/GreenWave/SURFEX73_GreenWave_300m_SCAY_ML_Summer2018_STKHM_DEFphs_HCLIMD_PREP/DEBUG'
 

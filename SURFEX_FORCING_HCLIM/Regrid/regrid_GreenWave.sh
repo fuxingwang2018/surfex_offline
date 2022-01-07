@@ -14,9 +14,9 @@ HCLIMDTG='2018070100'
 #experiment="HCLIM38_Summer2018_STKHM_NEW" # CentOS6, 2020, wrong
 #experiment="HCLIM38_Summer2018_STKHM_NEW_defaultPhys" #CentOS6, 2020, wrong
 #experiment="NorCP_AROME_ERAI_ALADIN_1997_2017"
-#experiment="HCLIM38_Summer2018_STKHM_DEFphys"  #CentOS7, 2021, correct
+experiment="HCLIM38_Summer2018_STKHM_DEFphys"  #CentOS7, 2021, correct
 #experiment="HCLIM38_Summer2018_STKHM_NEWphys"  #CentOS7, 2021, correct
-experiment="HCLIM38_Summer2018_STKHM_2050phys"  #CentOS7, 2021, correct
+#experiment="HCLIM38_Summer2018_STKHM_2050phys"  #CentOS7, 2021, correct
 
 # Output resolution
 OUT_RES=300m
@@ -29,7 +29,7 @@ var_type='from_fa_1H'
 
 Freq='1H' #'3H'
 
-mlevel=L62 #L65, L62, 50m
+mlevel=L65 #L65, L62, 50m
 
 if [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEW" ]]; then
     EXPNAME=GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW
@@ -48,11 +48,11 @@ elif [[ "$experiment" == "NorCP_AROME_ERAI_ALADIN_1997_2017" ]]; then
     HCLIMNAME_IN=${experiment}
     HCLIMNAME_OUT=${experiment}
 elif [[ "$experiment" == "HCLIM38_Summer2018_STKHM_DEFphys" ]]; then
-    EXPNAME=GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized
+    EXPNAME=GreenWave_HCLIM38_CentOS7_DEFphys_newcode_NoGARDEN #GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized
     if [[ "$var_type" == "from_fa_1H" ]]; then
         HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
     elif [[ "$var_type" != "from_fa_1H" ]]; then
-        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized 
+        HCLIMNAME_IN=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_NoGARDEN #GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized 
     fi
     HCLIMNAME_OUT=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys
 elif [[ "$experiment" == "HCLIM38_Summer2018_STKHM_NEWphys" ]]; then

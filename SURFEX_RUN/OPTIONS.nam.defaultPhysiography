@@ -29,7 +29,7 @@
                        CSEA    = 'SEAFLX'    ,
                        CTOWN   = 'TEB   '    ,
                        CWATER  = 'FLAKE '    , 
-		       LGARDEN = .TRUE., 
+		       LGARDEN = .FALSE., 
 /
 &NAM_FLAKEn
     LSEDIMENTS = .FALSE.,

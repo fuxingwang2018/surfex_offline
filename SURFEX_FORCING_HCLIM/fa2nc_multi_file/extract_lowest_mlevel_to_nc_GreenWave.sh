@@ -17,7 +17,7 @@ ly=(2018)   # last year
 #mms=(01 02 03 04 05 06 07 08 09 10 11 12) # months
 mms=(07) # months
 
-PHYSIOGRAPHY="2050" #"NEW" #DEFAULT
+PHYSIOGRAPHY="DEFAULT" #"2050" "NEW" #DEFAULT
 
 if [[ "$PHYSIOGRAPHY" == "DEFAULT" ]]; then
 
@@ -28,7 +28,7 @@ if [[ "$PHYSIOGRAPHY" == "DEFAULT" ]]; then
     #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_currentVmergedUrbSIS_NorCP_Summer2018_STKHM_NEW_defaultPhys_2018070100
 
     # AROME 3km default physiogrphy, new 2021-10
-    exp="GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized"
+    exp="GreenWave_HCLIM38_CentOS7_DEFphys_newcode_NoGARDEN" #"GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized"
     inpath="/nobackup/smhid19/users/sm_isari/hm_home/GreenWave/${exp}/archive"
     outpath="/nobackup/rossby26/users/sm_fuxwa/SURFEX_FORCING/HCLIM38_FORC/GreenWave/HCLIM38_SIM_2D/HCLIM38_Summer2018_STKHM_DEFphys/"
     #EXPNAME=GrW_STHLM3.0_GreenWave_HCLIM38_CentOS7_DEFphys_newcode_Optimized_2018070100
@@ -66,8 +66,9 @@ gl="/nobackup/rossby26/proj/rossby/joint_exp/harmony/HCLIM43_Eval/HCLIM38_Evalua
 
 # 
 # For GreenWave, we only need uamL, vamL, husL, taL, rsdsdir (3H netcdf available but we need to convert 1H from fa)
-mlevel=L62 #L62, L65
-var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel} 'rsdsdir') 
+mlevel=L65 #L62, L65
+var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel}) # 'rsdsdir') 
+#var_list=('rsdsdir') 
 
 # -- namelist
 #namelist="nam_utci"
