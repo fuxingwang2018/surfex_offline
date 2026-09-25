@@ -34,11 +34,13 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile,
     #
     # Read 1D netcdf file
     #
-    nc_file_1D_id = Dataset(nc_file_1D, 'r')
+    nc_file_1D_id = Dataset(nc_file_1D, 'r')  # Dataset is the class behavior to open the file, and create an instance of the ncCDF4 class
     nc_attrs_1d, nc_dims_1d, nc_vars_1d = nd.ncdump(nc_file_1D_id)
 
+    # only for ISBA_DIAGNOSTICS.OUT, because its 1D file is too big, we select few variables to convert to 2D!!!
     if name_surfex_file == 'ISBA_DIAGNOSTICS.OUT':
         nc_vars_1d = list(set(nc_vars_1d).intersection(set(var_isba_list)))
+
     elif name_surfex_file == 'ISBA_VEG_EVOLUTION.OUT':
         nc_vars_1d = list(set(nc_vars_1d).intersection(set(var_isba_veg_evolution_list)))
 
@@ -62,21 +64,13 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile,
     w_nc_file_out_id = Dataset(nc_file_out, 'w', format='NETCDF4')
     w_nc_file_out_id.description = "Convert SURFEX output from 1D (landpoint) to 2D (lon, lat)."
 
-    # Using our previous dimension info, we can create the new dimensions
+    # Using our previous dimension info, we can create the new time dimension
     data_dim = {}
     print('nc_dims_2d:', nc_dims_2d)
     for dim in nc_dims_2d:
         w_nc_file_out_id.createDimension(dim, None)
-
-        if dim == 'time' and 'time' in nc_file_1D_id.variables:
-            # time values AND attributes (units, calendar, ...) must come from
-            # the 1D simulation file, not the 2D reference file, since the
-            # values assigned below are the 1D file's time values.
-            data_dim[dim] = _create_var_like(
-                w_nc_file_out_id, dim, nc_file_1D_id.variables['time'], (dim,))
-        elif dim in nc_file_2D_id.variables:
-            data_dim[dim] = _create_var_like(
-                w_nc_file_out_id, dim, nc_file_2D_id.variables[dim], (dim,))
+        if dim in nc_file_2D_id.variables:
+            data_dim[dim] = _create_var_like(w_nc_file_out_id, dim, nc_file_2D_id.variables[dim], (dim,))
 
     if 'Number_of_Tile' in nc_dims_1d:
         w_nc_file_out_id.createDimension('Number_of_Tile', ntile)
@@ -87,7 +81,6 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile,
     w_nc_file_out_id.variables['y'][:] = y
     w_nc_file_out_id.variables['x'][:] = x
 
-    # ... rest of the function is unchanged from before ...
     # Time varied variables
     data_var = {}
 

@@ -17,7 +17,7 @@ rm -f dimconvert*
 #set -exu 
 
 cd $HOME/surfex_offline/SURFEX_DIM_Convert
-source ~sm_fuxwa/anaconda3/bin/activate 
+source ~sm_fuxwa/anaconda2/bin/activate 
 python main.py 
 
 current_date_time="`date`";
