@@ -19,9 +19,15 @@ from netCDF4 import Dataset  # http://code.google.com/p/netcdf4-python/
 import ncdump as nd
 import os, sys
 
+# BRIGHT
+extension_x = 11
+extension_y = 11
+
 #########################################################
 
-def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, var_isba_list):
+def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, var_isba_list, var_isba_veg_evolution_list):
+
+
   #
   # Read 1D netcdf file
   #
@@ -31,6 +37,9 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, va
   # only for ISBA_DIAGNOSTICS.OUT, because its 1D file is too big, we select few variables to convert to 2D!!!
   if name_surfex_file == 'ISBA_DIAGNOSTICS.OUT':  
     nc_vars_1d = list(set(nc_vars_1d).intersection(set(var_isba_list)))
+
+  elif name_surfex_file == 'ISBA_VEG_EVOLUTION.OUT':  
+    nc_vars_1d = list(set(nc_vars_1d).intersection(set(var_isba_veg_evolution_list)))
 
   # Extract data from NetCDF file
   time_1d = nc_file_1D_id.variables['time'][:]
@@ -47,9 +56,10 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, va
   # Extract data from NetCDF file
   #lon_2d = nc_file_2D_id.variables['longitude'][:]  # extract/copy the data
   #lat_2d = nc_file_2D_id.variables['latitude'][:]
-  x = nc_file_2D_id.variables['x'][:]
-  y = nc_file_2D_id.variables['y'][:] 
+  x = nc_file_2D_id.variables['x'][:-extension_x]
+  y = nc_file_2D_id.variables['y'][:-extension_y] 
 
+  print('x, y', len(x), len(y))
   #
   # Write NetCDF files
   #
@@ -61,8 +71,8 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, va
   # Using our previous dimension info, we can create the new time dimension
   # Even though we know the size, we are going to set the size to unknown
   data_dim = {}
+  print 'nc_dims_2d:', nc_dims_2d
   for dim in nc_dims_2d:
-    print 'dim:', dim
     w_nc_file_out_id.createDimension(dim, None)
     if dim in nc_file_2D_id.variables:
         data_dim[dim] = w_nc_file_out_id.createVariable(dim, nc_file_2D_id.variables[dim].dtype,\
@@ -86,14 +96,27 @@ def nc_1D_to_2D(name_surfex_file, nc_file_1D, nc_file_2D, nc_file_out, ntile, va
   #print 'nc_file_2D_id.variables[var].dimensions:', nc_file_1D_id.variables['xx'].dimensions == ('Number_of_points', )
   #print 'nc_file_2D_id.variables[var].dimensions:', nc_file_1D_id.variables['LE'].dimensions # == ('time', 'Number_of_points')
 
+  print('nc_vars_2d', nc_vars_2d)
   # Constant variable
   for var in nc_vars_2d:
-    if 'longitude' in var or 'latitude' in var:
+    if 'longitude' in var or 'latitude' in var or 'lon' in var or 'lat' in var:
 	data_var[var] = w_nc_file_out_id.createVariable(var, nc_file_2D_id.variables[var].dtype,\
                                    nc_file_2D_id.variables[var].dimensions)
+        #print('nc_file_2D_id.variables[var].dimensions', nc_file_2D_id.variables[var].dimensions)
         for ncattr in nc_file_2D_id.variables[var].ncattrs():
             data_var[var].setncattr(ncattr, nc_file_2D_id.variables[var].getncattr(ncattr))
-        w_nc_file_out_id.variables[var][:] = nc_file_2D_id.variables[var][:]
+        #print('nc_file_2D_id.variables[var][:]', np.shape(nc_file_2D_id.variables[var][:-extension_y,:-extension_x]))
+        w_nc_file_out_id.variables[var][:] = nc_file_2D_id.variables[var][:-extension_y,:-extension_x]
+
+    elif 'Lambert_Conformal' in var:
+	data_var[var] = w_nc_file_out_id.createVariable(var, nc_file_2D_id.variables[var].dtype,\
+                                   nc_file_2D_id.variables[var].dimensions)
+        #print('nc_file_2D_id.variables[var].dimensions', nc_file_2D_id.variables[var].dimensions)
+        for ncattr in nc_file_2D_id.variables[var].ncattrs():
+            data_var[var].setncattr(ncattr, nc_file_2D_id.variables[var].getncattr(ncattr))
+        #print('nc_file_2D_id.variables[var][:]', np.shape(nc_file_2D_id.variables[var][:-extension_y,:-extension_x]))
+        w_nc_file_out_id.variables[var] = nc_file_2D_id.variables[var]
+
 
   for var in nc_vars_1d:
     if nc_file_1D_id.variables[var].dimensions != ('time', 'Number_of_Tile', 'Number_of_points'):

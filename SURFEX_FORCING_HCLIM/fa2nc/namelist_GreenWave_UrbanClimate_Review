@@ -1,0 +1,9 @@
+&naminterp
+ ref_date      = 20100101,
+ readkey%name = 'SFX.FRAC_SEA','SFX.FRAC_NATURE','SFX.FRAC_WATER','SFX.FRAC_TOWN',
+ ref_hour      = 00,
+ READKEY%nnn = 0,
+/
+# readkey%name = 'SFX.EVAP_SEA','SFX.EVAPC_SEA','SFX.EVAP_WAT','SFX.EVAPC_WAT','SFX.EVAP_ISBA','SFX.EVAPC_ISBA','X001EVAP_P','X002EVAP_P','X001EVAPC_P','X002EVAPC_P','SFX.EVAPC', 
+# readkey%name = '',
+

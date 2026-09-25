@@ -17,7 +17,7 @@ ly=(2018)   # last year
 #mms=(01 02 03 04 05 06 07 08 09 10 11 12) # months
 mms=(07) # months
 
-PHYSIOGRAPHY="DEFAULT" #"2050" "NEW" #DEFAULT
+PHYSIOGRAPHY="NEW" #"2050" "NEW" #DEFAULT
 
 if [[ "$PHYSIOGRAPHY" == "DEFAULT" ]]; then
 
@@ -67,8 +67,9 @@ gl="/nobackup/rossby26/proj/rossby/joint_exp/harmony/HCLIM43_Eval/HCLIM38_Evalua
 # 
 # For GreenWave, we only need uamL, vamL, husL, taL, rsdsdir (3H netcdf available but we need to convert 1H from fa)
 mlevel=L65 #L62, L65
-var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel}) # 'rsdsdir') 
+#var_list=('uam'${mlevel} 'vam'${mlevel} 'hus'${mlevel} 'ta'${mlevel}) # 'rsdsdir') 
 #var_list=('rsdsdir') 
+var_list=('LAI')
 
 # -- namelist
 #namelist="nam_utci"
@@ -106,10 +107,10 @@ for ivar in ${var_list[@]} ; do
     for mm in "${mms[@]}"; do
         #files=$(find ${inpath}/${yy}/${mm}/01/00 -name ICMSHHARM* | sort | grep -v "\.sfx" | head --lines=-1)
 
-        if [[ "$namelist" != "name_utci" ]]; then
+        if [[ "$namelist" != "name_utci" && "$namelist" != "nam_LAI" ]]; then
 	    # for variables in ICMSHHARM file
        	    files=$(find ${inpath}/${yy}/${mm}/01/00 -name 'ICMSHHARM+?????' | sort | grep -v "\.sfx")
-        elif [[ "$namelist" == "nam_utci" ]]; then
+        elif [[ "$namelist" == "nam_utci"  ||  "$namelist" == "nam_LAI" ]] ; then
 	    # for variables in ICMSHHARM*.sfx file
             files=$(find ${inpath}/${yy}/${mm}/01/00 -name ICMSHHARM+?????.sfx | sort )
 	fi
@@ -118,7 +119,9 @@ for ivar in ${var_list[@]} ; do
         #files=$(find ${inpath} -name 'ICMSHHARM+00156.sfxPFHARMMUMS_500m+?????' | sort | grep -v "\.sfx")
         for f in ${files} ; do
 	    echo $f
-	    ${gl} -nc $f -n ${namelist} -o ${outpath}/${var_name_out}_${EXPNAME}.nc
+	    #${gl} -nc $f -n ${namelist} -o ${outpath}/${var_name_out}_${EXPNAME}.nc
+	    #${gl} -nc $f -n ${namelist} -o ${outpath}/${var_name_out}_${EXPNAME}.nc
+	    ${gl} -nc $f -n ${namelist} -ufn -o ${outpath}/${var_name_out}_${EXPNAME}.nc
         done
     done # month loop
   done # year loop

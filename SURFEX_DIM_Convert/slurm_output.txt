@@ -1,0 +1,2048 @@
+The run starts from Sat Nov 16 15:42:53 CET 2024
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2022-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2043-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2072-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2018-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2043-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+NetCDF Global Attributes:
+NetCDF dimension information:
+	Name: Number_of_points
+		size: 319225
+		type: 		WARNING: Number_of_points does not contain variable attributes
+	Name: xx
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: yy
+		size: 565
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'meters'
+	Name: snow_layer
+		size: 1
+		type: 		WARNING: snow_layer does not contain variable attributes
+	Name: time
+		size: 2375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		units: u'hours since 2072-05-25 00:00:00'
+NetCDF variable information:
+	Name: Projection_Type
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		earth_radius: 6371229.0
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0
+		rotation: 0.0
+		x_resolution: 300.0
+		y_resolution: 300.0
+		standard_parallel: 58.5
+	Name: TG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: TG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_TG1'
+		units: u'K'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P1
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+	Name: WG1P2
+		dimensions: (u'time', u'Number_of_points')
+		size: 758159375
+		type: dtype('float64')
+		_FillValue: 1e+20
+		long_name: u'X_Y_WG1'
+		units: u'm3/m3'
+		grid_mapping: u'Projection_Type'
+NetCDF Global Attributes:
+	CDI: u'Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)'
+	Conventions: u'CF-1.4'
+	institute_id: u'HCLIMcom'
+	model_id: u'HCLIM'
+	experiment_id: u'HCLIM43_BRIGHT3_2017_PGW1'
+	domain: u'BRIGHT3'
+	frequency: u'1hr'
+	driving_model_id: u'AROME'
+	creation_date: u'Thu Jul 13 12:33:45 2023'
+	title: u'Near-Surface Specific Humidity'
+	comment: u'Created with gl/xtool'
+	history: u'Tue Jul 25 08:54:51 2023: cdo remapbil,info.norrlink raw_data/HCLIM43_BRIGHT3_2017_PGW1/HCLIM43_BRIGHT3_2017_PGW1.nc remap/HCLIM43_NL_2017_PGW1.nc\nWed Jul 19 09:42:53 2023: cdo merge huss_fp.nc4 orog.nc4 pr_fp.nc4 prsn_fp.nc4 ps_fp.nc4 rlds_fp.nc4 rsdsdir_fp.nc4 rsds_fp.nc4 tas_fp.nc4 uas_fp.nc4 vas_fp.nc4 HCLIM43_BRIGHT3_2017_PGW1.nc\nWed Jul 19 09:42:24 2023: cdo mergetime huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201705250000-201706010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201706010000-201707010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201707010000-201708010000.nc huss_fp_BRIGHT3_HCLIM43_BRIGHT3_2017_PGW1_1hr_201708010000-201709010000.nc huss_fp.nc4'
+	CDO: u'Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)'
+NetCDF dimension information:
+	Name: time
+		size: 2376
+		type: dtype('float64')
+		standard_name: u'time'
+		long_name: u'Time'
+		units: u'days since 2017-05-25 00:00:00.0'
+		calendar: u'standard'
+		axis: u'T'
+	Name: x
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_x_coordinate'
+		long_name: u'X Coordinate Of Projection'
+		units: u'm'
+		axis: u'X'
+	Name: y
+		size: 576
+		type: dtype('float64')
+		standard_name: u'projection_y_coordinate'
+		long_name: u'Y Coordinate Of Projection'
+		units: u'm'
+		axis: u'Y'
+NetCDF variable information:
+	Name: lon
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'longitude'
+		long_name: u'Longitude'
+		units: u'degrees_east'
+		_CoordinateAxisType: u'Lon'
+	Name: lat
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float64')
+		standard_name: u'latitude'
+		long_name: u'Latitude'
+		units: u'degrees_north'
+		_CoordinateAxisType: u'Lat'
+	Name: Lambert_Conformal
+		dimensions: ()
+		size: 1.0
+		type: dtype('int32')
+		grid_mapping_name: u'lambert_conformal_conic'
+		standard_parallel: 58.5
+		longitude_of_central_meridian: 16.0
+		latitude_of_projection_origin: 58.5
+		false_easting: 84600.0
+		false_northing: 84600.0000000012
+		earth_radius: 6371229.0
+		proj4: u'+proj=lcc +lat_1=58.500000 +lat_2=58.500000 +lat_0=58.500000 +lon_0=16.000000 +k_0=1.0 +x_0=84600.000000 +y_0=84600.000000 +a=6371229.000000 +b=6371229.000000'
+	Name: height
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: height_2
+		dimensions: ()
+		size: 1.0
+		type: dtype('float64')
+		standard_name: u'height'
+		long_name: u'Height'
+		units: u'm'
+		positive: u'up'
+		axis: u'Z'
+		_CoordinateAxisType: u'Height'
+	Name: huss
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'specific_humidity'
+		long_name: u'Near-Surface Specific Humidity'
+		units: u'1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSHUMI.SPECIFIQ'
+		par: 51
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: orog
+		dimensions: (u'y', u'x')
+		size: 331776
+		type: dtype('float32')
+		standard_name: u'surface_altitude'
+		long_name: u'Surface Altitude'
+		units: u'm'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		_FillValue: 1e+20
+		missing_value: 1e+20
+		FA_name: u'SFX.ZS'
+		par: 8
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: pr
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'precipitation_flux'
+		long_name: u'Precipitation'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'TOT.WATER.PRECIP'
+		par: 61
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: prsn
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'snowfall_flux'
+		long_name: u'Snowfall'
+		units: u'kg m-2 s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFACCNEIGE'
+		par: 184
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: ps
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_air_pressure'
+		long_name: u'Surface Air Pressure'
+		units: u'Pa'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'SURFPRESSION'
+		par: 1
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 0
+		cell_methods: u'time: point'
+	Name: rlds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_longwave_flux_in_air'
+		long_name: u'Surface Downwelling Longwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT THER DE'
+		par: 115
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsdsdir
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_direct_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Direct Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT DIR SUR'
+		par: 116
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: rsds
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'surface_downwelling_shortwave_flux_in_air'
+		long_name: u'Surface Downwelling Shortwave Radiation'
+		units: u'W m-2'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		positive: u'down'
+		FA_name: u'SURFRAYT SOLA DE'
+		par: 117
+		lvt: u'heightAboveGround'
+		lev: 0
+		tri: 3
+		cell_methods: u'time: mean'
+	Name: tas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'air_temperature'
+		long_name: u'Near-Surface Air Temperature'
+		units: u'K'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height lat lon'
+		FA_name: u'CLSTEMPERATURE'
+		par: 11
+		lvt: u'heightAboveGround'
+		lev: 2
+		tri: 0
+		cell_methods: u'time: point'
+	Name: uas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'eastward_wind'
+		long_name: u'Eastward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.ZONAL'
+		par: 33
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+	Name: vas
+		dimensions: (u'time', u'y', u'x')
+		size: 788299776
+		type: dtype('float32')
+		standard_name: u'northward_wind'
+		long_name: u'Northward Near-Surface Wind Speed'
+		units: u'm s-1'
+		grid_mapping: u'Lambert_Conformal'
+		coordinates: u'height_2 lat lon'
+		FA_name: u'CLSVENT.MERIDIEN'
+		par: 34
+		lvt: u'heightAboveGround'
+		lev: 10
+		tri: 0
+		uvRelativeToGrid: 0
+		cell_methods: u'time: point'
+('x, y', 565, 565)
+nc_dims_2d: [u'time', u'x', u'y']
+('nc_vars_2d', [u'time', u'lon', u'lat', u'x', u'y', u'Lambert_Conformal', u'height', u'height_2', u'huss', u'orog', u'pr', u'prsn', u'ps', u'rlds', u'rsdsdir', u'rsds', u'tas', u'uas', u'vas'])
+shape of var_1D: (319225,) xx
+shape of var_1D: (319225,) yy
+shape of var_1D: (2375, 319225) TG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) TG1P2
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P1
+shape of var_2D: (2375, 565, 565)
+shape of var_1D: (2375, 319225) WG1P2
+shape of var_2D: (2375, 565, 565)
+The run ends at Sat Nov 16 16:06:43 CET 2024
